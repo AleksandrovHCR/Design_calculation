@@ -1,5 +1,7 @@
-#include "MyForm.h"
+#include "Main.h"
 #include <Windows.h>
+#include <process.h>
+#include <math.h>
 using namespace  урсова€работа;
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     Application::EnableVisualStyles();
