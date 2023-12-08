@@ -1,8 +1,8 @@
+#define _USE_MATH_DEFINES
 #pragma once
 #include <math.h>
 #include <string>
-
-
+#include "Selection_tablets.h"
 
 namespace Курсоваяработа {
 
@@ -83,6 +83,35 @@ namespace Курсоваяработа {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::RichTextBox^ D2_results;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Button^ Gab_calculate;
+
+	private: System::Windows::Forms::TextBox^ Gab_n1;
+
+	private: System::Windows::Forms::TextBox^ Gab_D1;
+
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::ToolStripMenuItem^ сброситьToolStripMenuItem;
+	private: System::Windows::Forms::RadioButton^ Type_3;
+
+	private: System::Windows::Forms::RadioButton^ Type_2;
+
+	private: System::Windows::Forms::RadioButton^ Type_1;
+
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::RichTextBox^ SG_D1_results;
+	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Button^ Calculate_D1_speed;
+	private: System::Windows::Forms::TextBox^ BS_n1;
+	private: System::Windows::Forms::GroupBox^ Main_Speed_group;
+	private: System::Windows::Forms::RichTextBox^ Main_speed;
+	private: System::Windows::Forms::GroupBox^ Axis_group;
+
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label13;
+	private: System::Windows::Forms::Label^ label14;
+
 
 
 	protected:
@@ -108,6 +137,7 @@ namespace Курсоваяработа {
 			this->Saverin = (gcnew System::Windows::Forms::RadioButton());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->расчётыToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->сброситьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->выходToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Sav_group = (gcnew System::Windows::Forms::GroupBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -122,8 +152,23 @@ namespace Курсоваяработа {
 			this->Sav_W1_130_value = (gcnew System::Windows::Forms::RadioButton());
 			this->Sav_W1_110_value = (gcnew System::Windows::Forms::RadioButton());
 			this->Speed_group = (gcnew System::Windows::Forms::GroupBox());
+			this->SG_D1_results = (gcnew System::Windows::Forms::RichTextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->Type_3 = (gcnew System::Windows::Forms::RadioButton());
+			this->Calculate_D1_speed = (gcnew System::Windows::Forms::Button());
+			this->Type_2 = (gcnew System::Windows::Forms::RadioButton());
+			this->BS_n1 = (gcnew System::Windows::Forms::TextBox());
+			this->Type_1 = (gcnew System::Windows::Forms::RadioButton());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->Size_group = (gcnew System::Windows::Forms::GroupBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->Gab_calculate = (gcnew System::Windows::Forms::Button());
+			this->Gab_n1 = (gcnew System::Windows::Forms::TextBox());
+			this->Gab_D1 = (gcnew System::Windows::Forms::TextBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->Depth_group = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->D2_group = (gcnew System::Windows::Forms::GroupBox());
 			this->D2_n2_value = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -133,10 +178,19 @@ namespace Курсоваяработа {
 			this->epsilon_003 = (gcnew System::Windows::Forms::RadioButton());
 			this->Calc_D2 = (gcnew System::Windows::Forms::Button());
 			this->epsilon_002 = (gcnew System::Windows::Forms::RadioButton());
+			this->Main_Speed_group = (gcnew System::Windows::Forms::GroupBox());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->Main_speed = (gcnew System::Windows::Forms::RichTextBox());
+			this->Axis_group = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
+			this->Speed_group->SuspendLayout();
+			this->Size_group->SuspendLayout();
+			this->Depth_group->SuspendLayout();
 			this->D2_group->SuspendLayout();
+			this->Main_Speed_group->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -216,15 +270,23 @@ namespace Курсоваяработа {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(868, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1235, 28);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// расчётыToolStripMenuItem
 			// 
+			this->расчётыToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->сброситьToolStripMenuItem });
 			this->расчётыToolStripMenuItem->Name = L"расчётыToolStripMenuItem";
 			this->расчётыToolStripMenuItem->Size = System::Drawing::Size(79, 24);
 			this->расчётыToolStripMenuItem->Text = L"Расчёты";
+			// 
+			// сброситьToolStripMenuItem
+			// 
+			this->сброситьToolStripMenuItem->Name = L"сброситьToolStripMenuItem";
+			this->сброситьToolStripMenuItem->Size = System::Drawing::Size(158, 26);
+			this->сброситьToolStripMenuItem->Text = L"Сбросить";
+			this->сброситьToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::сброситьToolStripMenuItem_Click);
 			// 
 			// выходToolStripMenuItem
 			// 
@@ -355,33 +417,183 @@ namespace Курсоваяработа {
 			// 
 			// Speed_group
 			// 
+			this->Speed_group->Controls->Add(this->SG_D1_results);
+			this->Speed_group->Controls->Add(this->label12);
+			this->Speed_group->Controls->Add(this->Type_3);
+			this->Speed_group->Controls->Add(this->Calculate_D1_speed);
+			this->Speed_group->Controls->Add(this->Type_2);
+			this->Speed_group->Controls->Add(this->BS_n1);
+			this->Speed_group->Controls->Add(this->Type_1);
+			this->Speed_group->Controls->Add(this->label11);
 			this->Speed_group->Enabled = false;
-			this->Speed_group->Location = System::Drawing::Point(218, 192);
+			this->Speed_group->Location = System::Drawing::Point(418, 31);
 			this->Speed_group->Name = L"Speed_group";
-			this->Speed_group->Size = System::Drawing::Size(194, 171);
+			this->Speed_group->Size = System::Drawing::Size(225, 490);
 			this->Speed_group->TabIndex = 11;
 			this->Speed_group->TabStop = false;
 			this->Speed_group->Text = L"Скорость ремня";
 			// 
+			// SG_D1_results
+			// 
+			this->SG_D1_results->Enabled = false;
+			this->SG_D1_results->Location = System::Drawing::Point(6, 322);
+			this->SG_D1_results->Name = L"SG_D1_results";
+			this->SG_D1_results->Size = System::Drawing::Size(213, 118);
+			this->SG_D1_results->TabIndex = 11;
+			this->SG_D1_results->Text = L"";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(5, 252);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(158, 32);
+			this->label12->TabIndex = 17;
+			this->label12->Text = L"Частота вращения\r\n меньшего шкива 1/мин:";
+			// 
+			// Type_3
+			// 
+			this->Type_3->AutoSize = true;
+			this->Type_3->Location = System::Drawing::Point(8, 179);
+			this->Type_3->Name = L"Type_3";
+			this->Type_3->Size = System::Drawing::Size(177, 68);
+			this->Type_3->TabIndex = 3;
+			this->Type_3->TabStop = true;
+			this->Type_3->Text = L"Синтетические \r\nкапроновые c\r\nплёночным покрытием\r\n(МРТУ 17-645-68) Тип II\r\n";
+			this->Type_3->UseVisualStyleBackColor = true;
+			// 
+			// Calculate_D1_speed
+			// 
+			this->Calculate_D1_speed->Location = System::Drawing::Point(71, 454);
+			this->Calculate_D1_speed->Name = L"Calculate_D1_speed";
+			this->Calculate_D1_speed->Size = System::Drawing::Size(92, 23);
+			this->Calculate_D1_speed->TabIndex = 15;
+			this->Calculate_D1_speed->Text = L"Расчитать";
+			this->Calculate_D1_speed->UseVisualStyleBackColor = true;
+			this->Calculate_D1_speed->Click += gcnew System::EventHandler(this, &MyForm::Calculate_D1_speed_Click);
+			// 
+			// Type_2
+			// 
+			this->Type_2->AutoSize = true;
+			this->Type_2->Location = System::Drawing::Point(8, 105);
+			this->Type_2->Name = L"Type_2";
+			this->Type_2->Size = System::Drawing::Size(177, 68);
+			this->Type_2->TabIndex = 2;
+			this->Type_2->TabStop = true;
+			this->Type_2->Text = L"Синтетические \r\nкапроновые c\r\nплёночным покрытием\r\n(МРТУ 17-645-68) Тип I\r\n";
+			this->Type_2->UseVisualStyleBackColor = true;
+			// 
+			// BS_n1
+			// 
+			this->BS_n1->Location = System::Drawing::Point(73, 287);
+			this->BS_n1->Name = L"BS_n1";
+			this->BS_n1->Size = System::Drawing::Size(100, 22);
+			this->BS_n1->TabIndex = 16;
+			// 
+			// Type_1
+			// 
+			this->Type_1->AutoSize = true;
+			this->Type_1->Location = System::Drawing::Point(8, 47);
+			this->Type_1->Name = L"Type_1";
+			this->Type_1->Size = System::Drawing::Size(196, 52);
+			this->Type_1->TabIndex = 1;
+			this->Type_1->TabStop = true;
+			this->Type_1->Text = L"Тканевые прорезиненые \r\nконечной длины\r\n(ГОСТ 38.05.98 76)";
+			this->Type_1->UseVisualStyleBackColor = true;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(6, 25);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(78, 16);
+			this->label11->TabIndex = 0;
+			this->label11->Text = L"Тип ремня:";
+			// 
 			// Size_group
 			// 
+			this->Size_group->Controls->Add(this->label9);
+			this->Size_group->Controls->Add(this->Gab_calculate);
+			this->Size_group->Controls->Add(this->Gab_n1);
+			this->Size_group->Controls->Add(this->Gab_D1);
+			this->Size_group->Controls->Add(this->label10);
 			this->Size_group->Enabled = false;
-			this->Size_group->Location = System::Drawing::Point(218, 369);
+			this->Size_group->Location = System::Drawing::Point(218, 345);
 			this->Size_group->Name = L"Size_group";
-			this->Size_group->Size = System::Drawing::Size(194, 152);
+			this->Size_group->Size = System::Drawing::Size(194, 176);
 			this->Size_group->TabIndex = 12;
 			this->Size_group->TabStop = false;
 			this->Size_group->Text = L"Габариты";
 			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(3, 70);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(158, 32);
+			this->label9->TabIndex = 14;
+			this->label9->Text = L"Частота вращения\r\n меньшего шкива 1/мин:";
+			// 
+			// Gab_calculate
+			// 
+			this->Gab_calculate->Location = System::Drawing::Point(52, 140);
+			this->Gab_calculate->Name = L"Gab_calculate";
+			this->Gab_calculate->Size = System::Drawing::Size(92, 23);
+			this->Gab_calculate->TabIndex = 0;
+			this->Gab_calculate->Text = L"Расчитать";
+			this->Gab_calculate->UseVisualStyleBackColor = true;
+			this->Gab_calculate->Click += gcnew System::EventHandler(this, &MyForm::Gab_calculate_Click);
+			// 
+			// Gab_n1
+			// 
+			this->Gab_n1->Location = System::Drawing::Point(74, 104);
+			this->Gab_n1->Name = L"Gab_n1";
+			this->Gab_n1->Size = System::Drawing::Size(100, 22);
+			this->Gab_n1->TabIndex = 13;
+			// 
+			// Gab_D1
+			// 
+			this->Gab_D1->Location = System::Drawing::Point(74, 45);
+			this->Gab_D1->Name = L"Gab_D1";
+			this->Gab_D1->Size = System::Drawing::Size(100, 22);
+			this->Gab_D1->TabIndex = 11;
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(3, 26);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(176, 32);
+			this->label10->TabIndex = 12;
+			this->label10->Text = L"Диаметр меньшего шкива \r\nмм:";
+			// 
 			// Depth_group
 			// 
+			this->Depth_group->Controls->Add(this->textBox1);
+			this->Depth_group->Controls->Add(this->label13);
 			this->Depth_group->Enabled = false;
 			this->Depth_group->Location = System::Drawing::Point(218, 31);
 			this->Depth_group->Name = L"Depth_group";
-			this->Depth_group->Size = System::Drawing::Size(194, 155);
+			this->Depth_group->Size = System::Drawing::Size(194, 308);
 			this->Depth_group->TabIndex = 12;
 			this->Depth_group->TabStop = false;
 			this->Depth_group->Text = L"Толщина ремня";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(44, 44);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 22);
+			this->textBox1->TabIndex = 15;
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(12, 25);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(132, 16);
+			this->label13->TabIndex = 16;
+			this->label13->Text = L"Толщина ремня мм:";
 			// 
 			// D2_group
 			// 
@@ -394,7 +606,7 @@ namespace Курсоваяработа {
 			this->D2_group->Controls->Add(this->Calc_D2);
 			this->D2_group->Controls->Add(this->epsilon_002);
 			this->D2_group->Enabled = false;
-			this->D2_group->Location = System::Drawing::Point(418, 31);
+			this->D2_group->Location = System::Drawing::Point(649, 32);
 			this->D2_group->Name = L"D2_group";
 			this->D2_group->Size = System::Drawing::Size(219, 380);
 			this->D2_group->TabIndex = 13;
@@ -403,7 +615,7 @@ namespace Курсоваяработа {
 			// 
 			// D2_n2_value
 			// 
-			this->D2_n2_value->Location = System::Drawing::Point(9, 111);
+			this->D2_n2_value->Location = System::Drawing::Point(19, 111);
 			this->D2_n2_value->Name = L"D2_n2_value";
 			this->D2_n2_value->Size = System::Drawing::Size(100, 22);
 			this->D2_n2_value->TabIndex = 11;
@@ -411,7 +623,7 @@ namespace Курсоваяработа {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(0, 76);
+			this->label8->Location = System::Drawing::Point(10, 76);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(157, 32);
 			this->label8->TabIndex = 11;
@@ -476,11 +688,63 @@ namespace Курсоваяработа {
 			this->epsilon_002->Text = L"0.02";
 			this->epsilon_002->UseVisualStyleBackColor = true;
 			// 
+			// Main_Speed_group
+			// 
+			this->Main_Speed_group->Controls->Add(this->label14);
+			this->Main_Speed_group->Controls->Add(this->Main_speed);
+			this->Main_Speed_group->Enabled = false;
+			this->Main_Speed_group->Location = System::Drawing::Point(874, 32);
+			this->Main_Speed_group->Name = L"Main_Speed_group";
+			this->Main_Speed_group->Size = System::Drawing::Size(200, 100);
+			this->Main_Speed_group->TabIndex = 14;
+			this->Main_Speed_group->TabStop = false;
+			this->Main_Speed_group->Text = L"Скорость";
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(6, 22);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(137, 16);
+			this->label14->TabIndex = 19;
+			this->label14->Text = L"Скорость ремня м/с:";
+			// 
+			// Main_speed
+			// 
+			this->Main_speed->Enabled = false;
+			this->Main_speed->Location = System::Drawing::Point(6, 46);
+			this->Main_speed->Name = L"Main_speed";
+			this->Main_speed->Size = System::Drawing::Size(188, 48);
+			this->Main_speed->TabIndex = 18;
+			this->Main_speed->Text = L"";
+			// 
+			// Axis_group
+			// 
+			this->Axis_group->Enabled = false;
+			this->Axis_group->Location = System::Drawing::Point(874, 132);
+			this->Axis_group->Name = L"Axis_group";
+			this->Axis_group->Size = System::Drawing::Size(200, 225);
+			this->Axis_group->TabIndex = 15;
+			this->Axis_group->TabStop = false;
+			this->Axis_group->Text = L"Межосевое расстояние";
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Location = System::Drawing::Point(994, 363);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(200, 100);
+			this->groupBox3->TabIndex = 16;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"groupBox3";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(868, 533);
+			this->ClientSize = System::Drawing::Size(1235, 533);
+			this->Controls->Add(this->groupBox3);
+			this->Controls->Add(this->Axis_group);
+			this->Controls->Add(this->Main_Speed_group);
 			this->Controls->Add(this->D2_group);
 			this->Controls->Add(this->Depth_group);
 			this->Controls->Add(this->Size_group);
@@ -498,8 +762,16 @@ namespace Курсоваяработа {
 			this->menuStrip1->PerformLayout();
 			this->Sav_group->ResumeLayout(false);
 			this->Sav_group->PerformLayout();
+			this->Speed_group->ResumeLayout(false);
+			this->Speed_group->PerformLayout();
+			this->Size_group->ResumeLayout(false);
+			this->Size_group->PerformLayout();
+			this->Depth_group->ResumeLayout(false);
+			this->Depth_group->PerformLayout();
 			this->D2_group->ResumeLayout(false);
 			this->D2_group->PerformLayout();
+			this->Main_Speed_group->ResumeLayout(false);
+			this->Main_Speed_group->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -507,8 +779,11 @@ namespace Курсоваяработа {
 #pragma endregion
 	public: int i_gear;
 		  double alpha;
-		  double u;
-		  double D1;
+		  double u;//Передаточное число
+		  double D1;//Диаметр меньшего шкива
+		  double v_belt = NULL;//Скорость ремня
+		  double n1_shkiv;//Частота вращения меньшего шкива
+		  double D2_main;//Диаметр большего шкива
 		 
 
 
@@ -518,56 +793,7 @@ namespace Курсоваяработа {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->Sav_group->Enabled = false;
 	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->Saverin->Checked == true || this->Belt_speed->Checked==true || this->Belt_depth->Checked==true || this->Gabarite->Checked==true) {
-			this->D1_Group->Enabled = false;
-			if (this->Saverin->Checked == true) {
-				this->Sav_group->Enabled = true;
-			}
-			else {
-				if (this->Belt_depth->Checked == true) {
-					this->Depth_group->Enabled = true;
-				}
-				else {
-					if (this->Belt_speed->Checked == true) {
-						this->Speed_group->Enabled = true;
-					}
-					else {
-						if (this->Gabarite->Checked == true) {
-							this->Size_group->Enabled = true;
-						}
-					}
-				}
-			}
-		}
-		else { MessageBox::Show("Выберите способ расчёта диаметра!", "Ошибка!",MessageBoxButtons::OK,MessageBoxIcon::Asterisk); }
-		
-		
-
-	}
-    private: System::Void Sav_button_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->Sav_W1_110_value->Checked == false && this->Sav_W1_130_value->Checked == false) { MessageBox::Show("Выберите значение коэффициента 110 или 130!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
-		else {
-			if (!TB_check(this->Sav_N_value->Text) || !TB_check(this->Sav_n1_value->Text)){ MessageBox::Show("Проверьте правильность введённых данных!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
-			else {
-				double sav_N = Convert::ToDouble(this->Sav_N_value->Text);
-				double n1 = Convert::ToDouble(this->Sav_n1_value->Text);
-				if(n1==0){ MessageBox::Show("Частота вращения не может быть равна нулю!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
-				else {
-					if (this->Sav_W1_110_value->Checked == true)  Saverin_function(sav_N, n1, 110);
-					else Saverin_function(sav_N, n1, 130);
-
-					Sav_results->Text += "Диаметр меньшего шкива (мм): " + D1 + "\n";
-					this->D2_group->Enabled = true;
-					this->Sav_group->Enabled = false;
-				}
-			}
-
-		}
-	}
-	private: System::Void выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		Close();
-	}
+	
 		double Shkiv_D2(double epsilon , char P_type) {
 			  switch (P_type) {
 			  case 'U': return D1 * (1 - epsilon) * u;
@@ -594,13 +820,72 @@ namespace Курсоваяработа {
 
 			return Correct;
 		}
-	
-//private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-//}
-//private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-//}
-	
-private: System::Void Calc_D2_Click(System::Object^ sender, System::EventArgs^ e) {
+		double Caluclate_belt_speed() {
+			if (v_belt != NULL)
+				return v_belt;
+			else {
+				return (M_PI * n1_shkiv * D1) / (1000 * 60);
+			}
+		}
+		double Calcuate_interaxis_range(double W2) { return W2 * (D1 + D2_main); }
+
+
+
+
+
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->Saverin->Checked == true || this->Belt_speed->Checked==true || this->Belt_depth->Checked==true || this->Gabarite->Checked==true) {
+			this->D1_Group->Enabled = false;
+			if (this->Saverin->Checked == true) {
+				this->Sav_group->Enabled = true;
+			}
+			else {
+				if (this->Belt_depth->Checked == true) {
+					this->Depth_group->Enabled = true;
+				}
+				else {
+					if (this->Belt_speed->Checked == true) {
+						this->Speed_group->Enabled = true;
+					}
+					else {
+						if (this->Gabarite->Checked == true) {
+							this->Size_group->Enabled = true;
+						}
+					}
+				}
+			}
+		}
+		else { MessageBox::Show("Выберите способ расчёта диаметра!", "Ошибка!",MessageBoxButtons::OK,MessageBoxIcon::Asterisk); }
+		
+		
+
+		}
+	private: System::Void Sav_button_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->Sav_W1_110_value->Checked == false && this->Sav_W1_130_value->Checked == false) { MessageBox::Show("Выберите значение коэффициента 110 или 130!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
+		else {
+			if (!TB_check(this->Sav_N_value->Text) || !TB_check(this->Sav_n1_value->Text)){ MessageBox::Show("Проверьте правильность введённых данных!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
+			else {
+				double sav_N = Convert::ToDouble(this->Sav_N_value->Text);
+				double n1 = Convert::ToDouble(this->Sav_n1_value->Text);
+				if(n1==0){ MessageBox::Show("Частота вращения не может быть равна нулю!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
+				else {
+					if (this->Sav_W1_110_value->Checked == true)  Saverin_function(sav_N, n1, 110);
+					else Saverin_function(sav_N, n1, 130);
+					n1_shkiv = Convert::ToDouble(this->Sav_n1_value->Text);
+					D1 = Round_diametr(D1);
+					Sav_results->Text += "Диаметр меньшего шкива (мм): " + D1 + "\n";
+					this->D2_group->Enabled = true;
+					this->Sav_group->Enabled = false;
+				}
+			}
+
+		}
+	}
+	private: System::Void выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Close();
+	}
+	private: System::Void Calc_D2_Click(System::Object^ sender, System::EventArgs^ e) {
 	if(!this->epsilon_002->Checked && !this->epsilon_003->Checked)MessageBox::Show("Выберите значение коэффициента скольжения ремня 0.02 или 0.03!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 	else {
 		if (!TB_check(this->D2_n2_value->Text)) { MessageBox::Show("Проверьте правильность введённых данных!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
@@ -608,7 +893,7 @@ private: System::Void Calc_D2_Click(System::Object^ sender, System::EventArgs^ e
 		if(n2==0)MessageBox::Show("Частота вращения не может быть равна нулю!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		else {
 			double D2[2];
-			u = Peredatochnoe_chislo(Convert::ToDouble(this->Sav_n1_value->Text), n2);
+			u = Peredatochnoe_chislo(n1_shkiv, n2);
 			if (this->epsilon_002->Checked) {
 				D2[0] = Shkiv_D2(0.02, 'D');
 				D2[1] = Shkiv_D2(0.02, 'U');
@@ -617,11 +902,64 @@ private: System::Void Calc_D2_Click(System::Object^ sender, System::EventArgs^ e
 				D2[0] = Shkiv_D2(0.03, 'D');
 				D2[1] = Shkiv_D2(0.03, 'U');
 			}
+			D2[0] = Round_diametr(D2[0]);
+			D2[1] = Round_diametr(D2[1]);
+			D2_main = D2[1];
 			this->D2_results->Text += "Диаметр большего шкива (мм):\nДля понижающих передач: " + D2[0] + "\nДля повышающих передач: " + D2[1] + "\nПередаточное число: " + u;
-
+			v_belt=Caluclate_belt_speed();
+			this->Main_Speed_group->Enabled = true;
+			this->Main_speed->Text += "Скорость ремня: " + v_belt + " м/с";
+			this->Axis_group->Enabled = true;
 		}
 	}
 }
+	private: System::Void Gab_calculate_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!TB_check(this->Gab_D1->Text) || !TB_check(this->Gab_n1->Text)) { MessageBox::Show("Проверьте правильность введённых данных!"); }
+		else {
+			D1 = Convert::ToDouble(this->Gab_D1->Text);
+			D1 = Round_diametr(D1);
+			n1_shkiv = Convert::ToDouble(this->Gab_n1->Text);
+			this->D2_group->Enabled = true;
+			this->Size_group->Enabled = false;
+		}
+	}
+	private: System::Void сброситьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		D1_Group->Enabled = true;
+		D2_group->Enabled = false;
+		Sav_group->Enabled = false;
+		Sav_results->Clear();
+		D2_results->Clear();
+	}
+	private: System::Void Calculate_D1_speed_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	if (this->Type_1->Checked == false && this->Type_2->Checked == false && this->Type_3->Checked == false) { MessageBox::Show("Выберите тип ремня!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
+	else {
+		if (!TB_check(this->BS_n1->Text)) { MessageBox::Show("Проверьте правильность введённых данных!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
+		else {
+			n1_shkiv = Convert::ToDouble(this->BS_n1->Text);
+			if (this->Type_1->Checked == true) {
+				v_belt = Get_speed(1);
+				D1 = Calculate_Diametr(1, n1_shkiv);
+			}
+			else {
+				if (this->Type_2->Checked == true) {
+					v_belt = Get_speed(2);
+					D1 = Calculate_Diametr(2, n1_shkiv);
+				}
+				else {
+					v_belt = Get_speed(3);
+					D1 = Calculate_Diametr(3, n1_shkiv);
+				}
+			}
+
+		}
+		D1 = Round_diametr(D1);
+		n1_shkiv = Convert::ToDouble(this->BS_n1->Text);
+		SG_D1_results->Text += "Диаметр меньшего шкива (мм): " + D1 + "\n";
+		this->D2_group->Enabled = true;
+		this->Speed_group->Enabled = false;
+		}
+	}
 };
   
 	
