@@ -111,6 +111,12 @@ namespace  урсова€работа {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::Label^ label14;
+	private: System::Windows::Forms::RichTextBox^ Axis_result;
+	private: System::Windows::Forms::Label^ label15;
+	private: System::Windows::Forms::Button^ Axis_calculate;
+	private: System::Windows::Forms::RadioButton^ High_speed_low_drag;
+	private: System::Windows::Forms::RadioButton^ Middle_speed;
+
 
 
 
@@ -182,6 +188,11 @@ namespace  урсова€работа {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->Main_speed = (gcnew System::Windows::Forms::RichTextBox());
 			this->Axis_group = (gcnew System::Windows::Forms::GroupBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->Axis_calculate = (gcnew System::Windows::Forms::Button());
+			this->High_speed_low_drag = (gcnew System::Windows::Forms::RadioButton());
+			this->Middle_speed = (gcnew System::Windows::Forms::RadioButton());
+			this->Axis_result = (gcnew System::Windows::Forms::RichTextBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
@@ -191,6 +202,7 @@ namespace  урсова€работа {
 			this->Depth_group->SuspendLayout();
 			this->D2_group->SuspendLayout();
 			this->Main_Speed_group->SuspendLayout();
+			this->Axis_group->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -270,7 +282,7 @@ namespace  урсова€работа {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1235, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1368, 28);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -720,28 +732,83 @@ namespace  урсова€работа {
 			// 
 			// Axis_group
 			// 
+			this->Axis_group->Controls->Add(this->label15);
+			this->Axis_group->Controls->Add(this->Axis_calculate);
+			this->Axis_group->Controls->Add(this->High_speed_low_drag);
+			this->Axis_group->Controls->Add(this->Middle_speed);
+			this->Axis_group->Controls->Add(this->Axis_result);
 			this->Axis_group->Enabled = false;
 			this->Axis_group->Location = System::Drawing::Point(874, 132);
 			this->Axis_group->Name = L"Axis_group";
-			this->Axis_group->Size = System::Drawing::Size(200, 225);
+			this->Axis_group->Size = System::Drawing::Size(200, 279);
 			this->Axis_group->TabIndex = 15;
 			this->Axis_group->TabStop = false;
 			this->Axis_group->Text = L"ћежосевое рассто€ние";
 			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(6, 27);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(102, 16);
+			this->label15->TabIndex = 4;
+			this->label15->Text = L"“ип передачи:";
+			// 
+			// Axis_calculate
+			// 
+			this->Axis_calculate->Location = System::Drawing::Point(51, 251);
+			this->Axis_calculate->Name = L"Axis_calculate";
+			this->Axis_calculate->Size = System::Drawing::Size(92, 23);
+			this->Axis_calculate->TabIndex = 3;
+			this->Axis_calculate->Text = L"–асчитать";
+			this->Axis_calculate->UseVisualStyleBackColor = true;
+			this->Axis_calculate->Click += gcnew System::EventHandler(this, &MyForm::Axis_calculate_Click);
+			// 
+			// High_speed_low_drag
+			// 
+			this->High_speed_low_drag->AutoSize = true;
+			this->High_speed_low_drag->Location = System::Drawing::Point(9, 74);
+			this->High_speed_low_drag->Name = L"High_speed_low_drag";
+			this->High_speed_low_drag->Size = System::Drawing::Size(121, 20);
+			this->High_speed_low_drag->TabIndex = 2;
+			this->High_speed_low_drag->TabStop = true;
+			this->High_speed_low_drag->Text = L"Ѕыстроходна€";
+			this->High_speed_low_drag->UseVisualStyleBackColor = true;
+			// 
+			// Middle_speed
+			// 
+			this->Middle_speed->AutoSize = true;
+			this->Middle_speed->Location = System::Drawing::Point(9, 49);
+			this->Middle_speed->Name = L"Middle_speed";
+			this->Middle_speed->Size = System::Drawing::Size(152, 20);
+			this->Middle_speed->TabIndex = 1;
+			this->Middle_speed->TabStop = true;
+			this->Middle_speed->Text = L"—реднескоростна€";
+			this->Middle_speed->UseVisualStyleBackColor = true;
+			// 
+			// Axis_result
+			// 
+			this->Axis_result->Location = System::Drawing::Point(6, 101);
+			this->Axis_result->Name = L"Axis_result";
+			this->Axis_result->ReadOnly = true;
+			this->Axis_result->Size = System::Drawing::Size(179, 144);
+			this->Axis_result->TabIndex = 0;
+			this->Axis_result->Text = L"";
+			// 
 			// groupBox3
 			// 
-			this->groupBox3->Location = System::Drawing::Point(994, 363);
+			this->groupBox3->Location = System::Drawing::Point(1080, 32);
 			this->groupBox3->Name = L"groupBox3";
 			this->groupBox3->Size = System::Drawing::Size(200, 100);
 			this->groupBox3->TabIndex = 16;
 			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"groupBox3";
+			this->groupBox3->Text = L"ƒлина ремн€";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1235, 533);
+			this->ClientSize = System::Drawing::Size(1368, 533);
 			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->Axis_group);
 			this->Controls->Add(this->Main_Speed_group);
@@ -772,6 +839,8 @@ namespace  урсова€работа {
 			this->D2_group->PerformLayout();
 			this->Main_Speed_group->ResumeLayout(false);
 			this->Main_Speed_group->PerformLayout();
+			this->Axis_group->ResumeLayout(false);
+			this->Axis_group->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -784,7 +853,7 @@ namespace  урсова€работа {
 		  double v_belt = NULL;//—корость ремн€
 		  double n1_shkiv;//„астота вращени€ меньшего шкива
 		  double D2_main;//ƒиаметр большего шкива
-		 
+		  double a;
 
 
 
@@ -827,7 +896,7 @@ namespace  урсова€работа {
 				return (M_PI * n1_shkiv * D1) / (1000 * 60);
 			}
 		}
-		double Calcuate_interaxis_range(double W2) { return W2 * (D1 + D2_main); }
+		double Interaxis_range(double W2) { return W2 * (D1 + D2_main); }
 
 
 
@@ -960,6 +1029,15 @@ namespace  урсова€работа {
 		this->Speed_group->Enabled = false;
 		}
 	}
+private: System::Void Axis_calculate_Click(System::Object^ sender, System::EventArgs^ e) {
+	if(this->Middle_speed->Checked==false && this->High_speed_low_drag->Checked==false)MessageBox::Show("ƒл€ какой передачи вы высчитываете межосевое рассто€ние?", "¬опрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	else {
+		if (this->Middle_speed->Checked == true) a = Interaxis_range(2);
+		else a = Interaxis_range(1.5);
+
+		this->Axis_result->Text += "ћежосевое рассто€ние: " + a + " мм\n";
+	}
+}
 };
   
 	
