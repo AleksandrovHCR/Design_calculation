@@ -106,8 +106,9 @@ namespace Курсоваяработа {
 	private: System::Windows::Forms::GroupBox^ Main_Speed_group;
 	private: System::Windows::Forms::RichTextBox^ Main_speed;
 	private: System::Windows::Forms::GroupBox^ Axis_group;
+	private: System::Windows::Forms::GroupBox^ Length_group;
 
-	private: System::Windows::Forms::GroupBox^ groupBox3;
+
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::Label^ label14;
@@ -116,6 +117,33 @@ namespace Курсоваяработа {
 	private: System::Windows::Forms::Button^ Axis_calculate;
 	private: System::Windows::Forms::RadioButton^ High_speed_low_drag;
 	private: System::Windows::Forms::RadioButton^ Middle_speed;
+	private: System::Windows::Forms::RadioButton^ Length_lifetime;
+
+	private: System::Windows::Forms::RadioButton^ Length_interaxis;
+private: System::Windows::Forms::Button^ Choose_the_method_of_length;
+private: System::Windows::Forms::GroupBox^ Length_througth_interaxis;
+private: System::Windows::Forms::GroupBox^ Lifetime_group;
+
+private: System::Windows::Forms::Label^ label16;
+private: System::Windows::Forms::TextBox^ I_freq;
+private: System::Windows::Forms::Label^ I_Inhibitor;
+private: System::Windows::Forms::Label^ Max_Length;
+private: System::Windows::Forms::Label^ label17;
+private: System::Windows::Forms::TextBox^ Length_in_gr;
+private: System::Windows::Forms::Button^ Select_length;
+private: System::Windows::Forms::RichTextBox^ LTI_Results;
+private: System::Windows::Forms::Button^ button2;
+private: System::Windows::Forms::Label^ label18;
+private: System::Windows::Forms::TextBox^ Length_LTI;
+private: System::Windows::Forms::Label^ Min_Length_2;
+private: System::Windows::Forms::Label^ I_Inhibitor_2;
+private: System::Windows::Forms::Label^ label21;
+private: System::Windows::Forms::TextBox^ i_freq_LTI;
+private: System::Windows::Forms::GroupBox^ Last_interaxis_group;
+private: System::Windows::Forms::RichTextBox^ richTextBox1;
+
+
+
 
 
 
@@ -193,7 +221,29 @@ namespace Курсоваяработа {
 			this->High_speed_low_drag = (gcnew System::Windows::Forms::RadioButton());
 			this->Middle_speed = (gcnew System::Windows::Forms::RadioButton());
 			this->Axis_result = (gcnew System::Windows::Forms::RichTextBox());
-			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->Length_group = (gcnew System::Windows::Forms::GroupBox());
+			this->Choose_the_method_of_length = (gcnew System::Windows::Forms::Button());
+			this->Length_lifetime = (gcnew System::Windows::Forms::RadioButton());
+			this->Length_interaxis = (gcnew System::Windows::Forms::RadioButton());
+			this->Length_througth_interaxis = (gcnew System::Windows::Forms::GroupBox());
+			this->LTI_Results = (gcnew System::Windows::Forms::RichTextBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->Length_LTI = (gcnew System::Windows::Forms::TextBox());
+			this->Min_Length_2 = (gcnew System::Windows::Forms::Label());
+			this->I_Inhibitor_2 = (gcnew System::Windows::Forms::Label());
+			this->label21 = (gcnew System::Windows::Forms::Label());
+			this->i_freq_LTI = (gcnew System::Windows::Forms::TextBox());
+			this->Lifetime_group = (gcnew System::Windows::Forms::GroupBox());
+			this->Select_length = (gcnew System::Windows::Forms::Button());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->Length_in_gr = (gcnew System::Windows::Forms::TextBox());
+			this->Max_Length = (gcnew System::Windows::Forms::Label());
+			this->I_Inhibitor = (gcnew System::Windows::Forms::Label());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->I_freq = (gcnew System::Windows::Forms::TextBox());
+			this->Last_interaxis_group = (gcnew System::Windows::Forms::GroupBox());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
@@ -203,6 +253,10 @@ namespace Курсоваяработа {
 			this->D2_group->SuspendLayout();
 			this->Main_Speed_group->SuspendLayout();
 			this->Axis_group->SuspendLayout();
+			this->Length_group->SuspendLayout();
+			this->Length_througth_interaxis->SuspendLayout();
+			this->Lifetime_group->SuspendLayout();
+			this->Last_interaxis_group->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -282,7 +336,7 @@ namespace Курсоваяработа {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1368, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1576, 28);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -322,7 +376,7 @@ namespace Курсоваяработа {
 			this->Sav_group->Controls->Add(this->Sav_W1_110_value);
 			this->Sav_group->Location = System::Drawing::Point(18, 192);
 			this->Sav_group->Name = L"Sav_group";
-			this->Sav_group->Size = System::Drawing::Size(194, 322);
+			this->Sav_group->Size = System::Drawing::Size(194, 329);
 			this->Sav_group->TabIndex = 3;
 			this->Sav_group->TabStop = false;
 			this->Sav_group->Text = L"Формула Саверина";
@@ -795,21 +849,245 @@ namespace Курсоваяработа {
 			this->Axis_result->TabIndex = 0;
 			this->Axis_result->Text = L"";
 			// 
-			// groupBox3
+			// Length_group
 			// 
-			this->groupBox3->Location = System::Drawing::Point(1080, 32);
-			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(200, 100);
-			this->groupBox3->TabIndex = 16;
-			this->groupBox3->TabStop = false;
-			this->groupBox3->Text = L"Длина ремня";
+			this->Length_group->Controls->Add(this->Choose_the_method_of_length);
+			this->Length_group->Controls->Add(this->Length_lifetime);
+			this->Length_group->Controls->Add(this->Length_interaxis);
+			this->Length_group->Enabled = false;
+			this->Length_group->Location = System::Drawing::Point(1080, 32);
+			this->Length_group->Name = L"Length_group";
+			this->Length_group->Size = System::Drawing::Size(209, 147);
+			this->Length_group->TabIndex = 16;
+			this->Length_group->TabStop = false;
+			this->Length_group->Text = L"Длина ремня";
+			// 
+			// Choose_the_method_of_length
+			// 
+			this->Choose_the_method_of_length->Location = System::Drawing::Point(66, 111);
+			this->Choose_the_method_of_length->Name = L"Choose_the_method_of_length";
+			this->Choose_the_method_of_length->Size = System::Drawing::Size(92, 23);
+			this->Choose_the_method_of_length->TabIndex = 4;
+			this->Choose_the_method_of_length->Text = L"Выбрать";
+			this->Choose_the_method_of_length->UseVisualStyleBackColor = true;
+			this->Choose_the_method_of_length->Click += gcnew System::EventHandler(this, &MyForm::Choose_the_method_of_length_Click);
+			// 
+			// Length_lifetime
+			// 
+			this->Length_lifetime->AutoSize = true;
+			this->Length_lifetime->Location = System::Drawing::Point(6, 58);
+			this->Length_lifetime->Name = L"Length_lifetime";
+			this->Length_lifetime->Size = System::Drawing::Size(171, 52);
+			this->Length_lifetime->TabIndex = 1;
+			this->Length_lifetime->TabStop = true;
+			this->Length_lifetime->Text = L"Из условий \r\nсравнительной \r\nдолговечности ремня";
+			this->Length_lifetime->UseVisualStyleBackColor = true;
+			// 
+			// Length_interaxis
+			// 
+			this->Length_interaxis->AutoSize = true;
+			this->Length_interaxis->Location = System::Drawing::Point(6, 22);
+			this->Length_interaxis->Name = L"Length_interaxis";
+			this->Length_interaxis->Size = System::Drawing::Size(191, 36);
+			this->Length_interaxis->TabIndex = 0;
+			this->Length_interaxis->TabStop = true;
+			this->Length_interaxis->Text = L"По выбранному \r\nмежосевому расстоянию";
+			this->Length_interaxis->UseVisualStyleBackColor = true;
+			// 
+			// Length_througth_interaxis
+			// 
+			this->Length_througth_interaxis->Controls->Add(this->LTI_Results);
+			this->Length_througth_interaxis->Controls->Add(this->button2);
+			this->Length_througth_interaxis->Controls->Add(this->label18);
+			this->Length_througth_interaxis->Controls->Add(this->Length_LTI);
+			this->Length_througth_interaxis->Controls->Add(this->Min_Length_2);
+			this->Length_througth_interaxis->Controls->Add(this->I_Inhibitor_2);
+			this->Length_througth_interaxis->Controls->Add(this->label21);
+			this->Length_througth_interaxis->Controls->Add(this->i_freq_LTI);
+			this->Length_througth_interaxis->Enabled = false;
+			this->Length_througth_interaxis->Location = System::Drawing::Point(1080, 185);
+			this->Length_througth_interaxis->Name = L"Length_througth_interaxis";
+			this->Length_througth_interaxis->Size = System::Drawing::Size(209, 336);
+			this->Length_througth_interaxis->TabIndex = 17;
+			this->Length_througth_interaxis->TabStop = false;
+			this->Length_througth_interaxis->Text = L"Длина ремня через межосевое расстояние";
+			// 
+			// LTI_Results
+			// 
+			this->LTI_Results->Enabled = false;
+			this->LTI_Results->Location = System::Drawing::Point(6, 41);
+			this->LTI_Results->Name = L"LTI_Results";
+			this->LTI_Results->Size = System::Drawing::Size(191, 70);
+			this->LTI_Results->TabIndex = 11;
+			this->LTI_Results->Text = L"";
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(48, 300);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(92, 23);
+			this->button2->TabIndex = 24;
+			this->button2->Text = L"Выбрать";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(6, 253);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(72, 16);
+			this->label18->TabIndex = 30;
+			this->label18->Text = L"Длина мм:";
+			// 
+			// Length_LTI
+			// 
+			this->Length_LTI->Location = System::Drawing::Point(48, 272);
+			this->Length_LTI->Name = L"Length_LTI";
+			this->Length_LTI->Size = System::Drawing::Size(100, 22);
+			this->Length_LTI->TabIndex = 29;
+			// 
+			// Min_Length_2
+			// 
+			this->Min_Length_2->AutoSize = true;
+			this->Min_Length_2->Location = System::Drawing::Point(6, 204);
+			this->Min_Length_2->Name = L"Min_Length_2";
+			this->Min_Length_2->Size = System::Drawing::Size(146, 16);
+			this->Min_Length_2->TabIndex = 28;
+			this->Min_Length_2->Text = L"Минимальная длина: ";
+			// 
+			// I_Inhibitor_2
+			// 
+			this->I_Inhibitor_2->AutoSize = true;
+			this->I_Inhibitor_2->Location = System::Drawing::Point(6, 177);
+			this->I_Inhibitor_2->Name = L"I_Inhibitor_2";
+			this->I_Inhibitor_2->Size = System::Drawing::Size(74, 16);
+			this->I_Inhibitor_2->TabIndex = 27;
+			this->I_Inhibitor_2->Text = L"Не более: ";
+			// 
+			// label21
+			// 
+			this->label21->AutoSize = true;
+			this->label21->Location = System::Drawing::Point(6, 111);
+			this->label21->Name = L"label21";
+			this->label21->Size = System::Drawing::Size(121, 32);
+			this->label21->TabIndex = 26;
+			this->label21->Text = L"Частота пробега \r\nремня в секунду:";
+			// 
+			// i_freq_LTI
+			// 
+			this->i_freq_LTI->Location = System::Drawing::Point(74, 146);
+			this->i_freq_LTI->Name = L"i_freq_LTI";
+			this->i_freq_LTI->Size = System::Drawing::Size(100, 22);
+			this->i_freq_LTI->TabIndex = 25;
+			this->i_freq_LTI->TextChanged += gcnew System::EventHandler(this, &MyForm::i_freq_LTI_TextChanged);
+			// 
+			// Lifetime_group
+			// 
+			this->Lifetime_group->Controls->Add(this->Select_length);
+			this->Lifetime_group->Controls->Add(this->label17);
+			this->Lifetime_group->Controls->Add(this->Length_in_gr);
+			this->Lifetime_group->Controls->Add(this->Max_Length);
+			this->Lifetime_group->Controls->Add(this->I_Inhibitor);
+			this->Lifetime_group->Controls->Add(this->label16);
+			this->Lifetime_group->Controls->Add(this->I_freq);
+			this->Lifetime_group->Enabled = false;
+			this->Lifetime_group->Location = System::Drawing::Point(1295, 32);
+			this->Lifetime_group->Name = L"Lifetime_group";
+			this->Lifetime_group->Size = System::Drawing::Size(200, 272);
+			this->Lifetime_group->TabIndex = 18;
+			this->Lifetime_group->TabStop = false;
+			this->Lifetime_group->Text = L"Длина ремня через условие долговечности ремня";
+			// 
+			// Select_length
+			// 
+			this->Select_length->Location = System::Drawing::Point(48, 241);
+			this->Select_length->Name = L"Select_length";
+			this->Select_length->Size = System::Drawing::Size(92, 23);
+			this->Select_length->TabIndex = 5;
+			this->Select_length->Text = L"Выбрать";
+			this->Select_length->UseVisualStyleBackColor = true;
+			this->Select_length->Click += gcnew System::EventHandler(this, &MyForm::Select_length_Click);
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(6, 194);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(72, 16);
+			this->label17->TabIndex = 23;
+			this->label17->Text = L"Длина мм:";
+			// 
+			// Length_in_gr
+			// 
+			this->Length_in_gr->Location = System::Drawing::Point(48, 213);
+			this->Length_in_gr->Name = L"Length_in_gr";
+			this->Length_in_gr->Size = System::Drawing::Size(100, 22);
+			this->Length_in_gr->TabIndex = 22;
+			// 
+			// Max_Length
+			// 
+			this->Max_Length->AutoSize = true;
+			this->Max_Length->Location = System::Drawing::Point(6, 145);
+			this->Max_Length->Name = L"Max_Length";
+			this->Max_Length->Size = System::Drawing::Size(146, 16);
+			this->Max_Length->TabIndex = 21;
+			this->Max_Length->Text = L"Минимальная длина: ";
+			// 
+			// I_Inhibitor
+			// 
+			this->I_Inhibitor->AutoSize = true;
+			this->I_Inhibitor->Location = System::Drawing::Point(6, 118);
+			this->I_Inhibitor->Name = L"I_Inhibitor";
+			this->I_Inhibitor->Size = System::Drawing::Size(74, 16);
+			this->I_Inhibitor->TabIndex = 20;
+			this->I_Inhibitor->Text = L"Не более: ";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(6, 52);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(121, 32);
+			this->label16->TabIndex = 19;
+			this->label16->Text = L"Частота пробега \r\nремня в секунду:";
+			// 
+			// I_freq
+			// 
+			this->I_freq->Location = System::Drawing::Point(74, 87);
+			this->I_freq->Name = L"I_freq";
+			this->I_freq->Size = System::Drawing::Size(100, 22);
+			this->I_freq->TabIndex = 18;
+			this->I_freq->TextChanged += gcnew System::EventHandler(this, &MyForm::I_freq_TextChanged);
+			// 
+			// Last_interaxis_group
+			// 
+			this->Last_interaxis_group->Controls->Add(this->richTextBox1);
+			this->Last_interaxis_group->Enabled = false;
+			this->Last_interaxis_group->Location = System::Drawing::Point(649, 417);
+			this->Last_interaxis_group->Name = L"Last_interaxis_group";
+			this->Last_interaxis_group->Size = System::Drawing::Size(419, 104);
+			this->Last_interaxis_group->TabIndex = 19;
+			this->Last_interaxis_group->TabStop = false;
+			this->Last_interaxis_group->Text = L"Окончательное межосевое расстояние";
+			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Enabled = false;
+			this->richTextBox1->Location = System::Drawing::Point(9, 21);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(401, 72);
+			this->richTextBox1->TabIndex = 19;
+			this->richTextBox1->Text = L"";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1368, 533);
-			this->Controls->Add(this->groupBox3);
+			this->ClientSize = System::Drawing::Size(1576, 533);
+			this->Controls->Add(this->Last_interaxis_group);
+			this->Controls->Add(this->Lifetime_group);
+			this->Controls->Add(this->Length_througth_interaxis);
+			this->Controls->Add(this->Length_group);
 			this->Controls->Add(this->Axis_group);
 			this->Controls->Add(this->Main_Speed_group);
 			this->Controls->Add(this->D2_group);
@@ -841,21 +1119,28 @@ namespace Курсоваяработа {
 			this->Main_Speed_group->PerformLayout();
 			this->Axis_group->ResumeLayout(false);
 			this->Axis_group->PerformLayout();
+			this->Length_group->ResumeLayout(false);
+			this->Length_group->PerformLayout();
+			this->Length_througth_interaxis->ResumeLayout(false);
+			this->Length_througth_interaxis->PerformLayout();
+			this->Lifetime_group->ResumeLayout(false);
+			this->Lifetime_group->PerformLayout();
+			this->Last_interaxis_group->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	public: int i_gear;
-		  double alpha;
+		  double alpha_1;//Угол на меньшем шкиве
 		  double u;//Передаточное число
 		  double D1;//Диаметр меньшего шкива
 		  double v_belt = NULL;//Скорость ремня
 		  double n1_shkiv;//Частота вращения меньшего шкива
 		  double D2_main;//Диаметр большего шкива
-		  double a;
-
-
+		  double a; //Межосевое расстояние
+		  double L; //Длина
+		  int Belt_type; //0 - резиновый 1 - синтетический
 
 
 
@@ -897,10 +1182,22 @@ namespace Курсоваяработа {
 			}
 		}
 		double Interaxis_range(double W2) { return W2 * (D1 + D2_main); }
+		//Длина
+		double Length() { return 2 * a + M_PI * ((D1 + D2_main) / 2) + pow((D2_main - D1), 2) / (4 * a); }
+		double Length_check(double i) {
+			
+			return v_belt / i;;
+		}
+		//Доп параметры к финальным формулам
+		double Calculate_final_interaxis() {
+			double delta = (D2_main - D1) / 2;
+			double lambda = L - M_PI * ((D1 + D2_main) / 2);
+			return (lambda + pow((pow(lambda, 2) - 8 * pow(delta, 2)),0.5))/4;
+		}
 
-
-
-
+		double Calculate_alpha() {
+			return 180 - (D2_main * D1 / a) * 57;
+		}
 
 
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -976,6 +1273,7 @@ namespace Курсоваяработа {
 			D2_main = D2[1];
 			this->D2_results->Text += "Диаметр большего шкива (мм):\nДля понижающих передач: " + D2[0] + "\nДля повышающих передач: " + D2[1] + "\nПередаточное число: " + u;
 			v_belt=Caluclate_belt_speed();
+			this->D2_group->Enabled = false;
 			this->Main_Speed_group->Enabled = true;
 			this->Main_speed->Text += "Скорость ремня: " + v_belt + " м/с";
 			this->Axis_group->Enabled = true;
@@ -1029,14 +1327,64 @@ namespace Курсоваяработа {
 		this->Speed_group->Enabled = false;
 		}
 	}
-private: System::Void Axis_calculate_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void Axis_calculate_Click(System::Object^ sender, System::EventArgs^ e) {
 	if(this->Middle_speed->Checked==false && this->High_speed_low_drag->Checked==false)MessageBox::Show("Для какой передачи вы высчитываете межосевое расстояние?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 	else {
 		if (this->Middle_speed->Checked == true) a = Interaxis_range(2);
 		else a = Interaxis_range(1.5);
 
 		this->Axis_result->Text += "Межосевое расстояние: " + a + " мм\n";
+		this->Axis_group->Enabled = false;
+		this->Length_group->Enabled = true;
 	}
+}
+	private: System::Void Choose_the_method_of_length_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (this->Length_interaxis->Checked == false && this->Length_lifetime->Checked == false)MessageBox::Show("Как вы собираетесь считать длину ремня?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+	else {
+		if (Length_lifetime->Checked) {
+			Length_group->Enabled = false;
+			if (High_speed_low_drag->Checked) I_Inhibitor->Text += 50;
+			else  I_Inhibitor->Text += 5;
+			this->Lifetime_group->Enabled = true;
+			this->Length_group->Enabled = false;
+
+		}
+		else {
+			if (High_speed_low_drag->Checked) I_Inhibitor_2->Text += 50;
+			
+			else I_Inhibitor_2->Text += 5;
+			this->Length_group->Enabled = false;
+			this->Length_througth_interaxis->Enabled = true;
+			L = Length();
+			LTI_Results->Text += "Длина ремня: " + L + " мм\n";
+		}
+
+
+	}
+}
+private: System::Void I_freq_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if(!TB_check(this->I_freq->Text)){}
+	else {
+		if ((I_Inhibitor->Text->Contains("5") && (Convert::ToDouble(this->I_freq->Text)) <= 5) || (I_Inhibitor->Text->Contains("50") && (Convert::ToDouble(this->I_freq->Text)) <= 50)) {
+			Max_Length->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->I_freq->Text)) + " мм";
+		}
+		else {
+			Max_Length->Text = "Минимальная длина:\n" + "??? мм";
+		}
+	}
+}
+private: System::Void i_freq_LTI_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (!TB_check(this->i_freq_LTI->Text)) {}
+	else {
+		if ((I_Inhibitor_2->Text->Contains("5") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 5 ) || (I_Inhibitor_2->Text->Contains("50") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 50)) {
+			Min_Length_2->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->i_freq_LTI->Text)) + " мм";
+		}
+		else {
+			Min_Length_2->Text = "Минимальная длина:\n" + "??? мм";
+		}
+	}
+}
+private: System::Void Select_length_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
   

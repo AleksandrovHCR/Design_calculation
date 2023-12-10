@@ -96,6 +96,31 @@ class Belt_width_syntetic {
 	double Depth; double D_min;
 	Belt_width_syntetic(double Depth, double D_min) { this->Depth = Depth; this->D_min = D_min; }
 };
+
+class Acceptable_Length {// Таблица 1.3
+	int type;
+	double Depth[2];
+	double Width;
+	double Inner_length[9];
+	double Max_dev;
+public:
+	Acceptable_Length(int T, double D_1, double D_2, double W, double IL_1, double IL_2, double IL_3, double IL_4, double IL_5, double IL_6, double IL_7, double IL_8, double IL_9, double MD) :type{ T }, Width{ W }, Max_dev{ MD } {
+		Depth[0] = D_1; Depth[1] = D_2;
+		Inner_length[0] = IL_1;
+		Inner_length[1] = IL_2;
+		Inner_length[2] = IL_3;
+		Inner_length[3] = IL_4;
+		Inner_length[4] = IL_5;
+		Inner_length[5] = IL_6;
+		Inner_length[6] = IL_7;
+		Inner_length[7] = IL_8;
+		Inner_length[8] = IL_9;
+	}
+};
+
+
+
+
 #pragma endregion
 //Belt Tab_1_1[3]{
 //	Belt{"Тканевые прорезиненые конечной длины(ГОСТ 38.05.98 76)",{20,500},{3,3.5},
@@ -110,7 +135,7 @@ class Belt_width_syntetic {
 #pragma region Tables
 Belt_light Belts_light[]{//Для расчётов
 	Belt_light(1,30,3,13.5,0,30,0,40),//Тканевы прорезиненный
-	Belt_light(2,100,0.4,0.6,50,70,100,150),//Синтетический типй
+	Belt_light(2,100,0.4,0.6,50,70,100,150),//Синтетический тип 1
 	Belt_light(3,50,1,1.2,50,70,100,150)//Синтетический тип 2
 };
 
@@ -130,6 +155,12 @@ Acceptable_Diametr Accept_Diams[]{//13.18
 	Acceptable_Diametr(250,2.5,0.8,160,2,140),
 	Acceptable_Diametr(280,3.2,0.8,180,2,160),
 	Acceptable_Diametr(315,3.2,1,200,2,180),
+};
+
+
+
+Acceptable_Length Acept_Lengths[]{
+	Acceptable_Length(1,0.4,0.6,10,250,260,280,300,320,340,0,0,0,20)
 };
 #pragma endregion
 double Get_speed(int type) {
