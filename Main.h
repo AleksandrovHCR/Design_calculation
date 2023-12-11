@@ -109,7 +109,8 @@ namespace Курсоваяработа {
 	private: System::Windows::Forms::GroupBox^ Length_group;
 
 
-	private: System::Windows::Forms::TextBox^ textBox1;
+
+
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::RichTextBox^ Axis_result;
@@ -132,7 +133,8 @@ private: System::Windows::Forms::Label^ label17;
 private: System::Windows::Forms::TextBox^ Length_in_gr;
 private: System::Windows::Forms::Button^ Select_length;
 private: System::Windows::Forms::RichTextBox^ LTI_Results;
-private: System::Windows::Forms::Button^ button2;
+private: System::Windows::Forms::Button^ Calc_length_of_belt;
+
 private: System::Windows::Forms::Label^ label18;
 private: System::Windows::Forms::TextBox^ Length_LTI;
 private: System::Windows::Forms::Label^ Min_Length_2;
@@ -141,6 +143,34 @@ private: System::Windows::Forms::Label^ label21;
 private: System::Windows::Forms::TextBox^ i_freq_LTI;
 private: System::Windows::Forms::GroupBox^ Last_interaxis_group;
 private: System::Windows::Forms::RichTextBox^ richTextBox1;
+private: System::Windows::Forms::Label^ label19;
+private: System::Windows::Forms::RadioButton^ Syntetic_belt;
+private: System::Windows::Forms::RadioButton^ Rubber_belt;
+private: System::Windows::Forms::CheckBox^ With_interlayer;
+
+
+
+private: System::Windows::Forms::Label^ label20;
+private: System::Windows::Forms::Button^ Calculate_D1_TD;
+
+private: System::Windows::Forms::GroupBox^ Final_angle;
+
+private: System::Windows::Forms::RichTextBox^ Depth_results;
+private: System::Windows::Forms::ComboBox^ Synthetic_depth;
+private: System::Windows::Forms::Label^ label22;
+private: System::Windows::Forms::TextBox^ n1_TD;
+
+private: System::Windows::Forms::TextBox^ D1_TD;
+
+private: System::Windows::Forms::Label^ label23;
+private: System::Windows::Forms::Button^ Set_D1_TD;
+private: System::Windows::Forms::ComboBox^ Prokladki;
+private: System::Windows::Forms::GroupBox^ B_BNKL_group;
+private: System::Windows::Forms::RadioButton^ BNKL;
+private: System::Windows::Forms::RadioButton^ B800_B820;
+
+
+
 
 
 
@@ -201,7 +231,23 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Gab_D1 = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->Depth_group = (gcnew System::Windows::Forms::GroupBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->B_BNKL_group = (gcnew System::Windows::Forms::GroupBox());
+			this->BNKL = (gcnew System::Windows::Forms::RadioButton());
+			this->B800_B820 = (gcnew System::Windows::Forms::RadioButton());
+			this->Prokladki = (gcnew System::Windows::Forms::ComboBox());
+			this->Set_D1_TD = (gcnew System::Windows::Forms::Button());
+			this->label22 = (gcnew System::Windows::Forms::Label());
+			this->Synthetic_depth = (gcnew System::Windows::Forms::ComboBox());
+			this->n1_TD = (gcnew System::Windows::Forms::TextBox());
+			this->Depth_results = (gcnew System::Windows::Forms::RichTextBox());
+			this->D1_TD = (gcnew System::Windows::Forms::TextBox());
+			this->Calculate_D1_TD = (gcnew System::Windows::Forms::Button());
+			this->label23 = (gcnew System::Windows::Forms::Label());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->With_interlayer = (gcnew System::Windows::Forms::CheckBox());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->Syntetic_belt = (gcnew System::Windows::Forms::RadioButton());
+			this->Rubber_belt = (gcnew System::Windows::Forms::RadioButton());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->D2_group = (gcnew System::Windows::Forms::GroupBox());
 			this->D2_n2_value = (gcnew System::Windows::Forms::TextBox());
@@ -227,7 +273,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Length_interaxis = (gcnew System::Windows::Forms::RadioButton());
 			this->Length_througth_interaxis = (gcnew System::Windows::Forms::GroupBox());
 			this->LTI_Results = (gcnew System::Windows::Forms::RichTextBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->Calc_length_of_belt = (gcnew System::Windows::Forms::Button());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->Length_LTI = (gcnew System::Windows::Forms::TextBox());
 			this->Min_Length_2 = (gcnew System::Windows::Forms::Label());
@@ -244,12 +290,14 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->I_freq = (gcnew System::Windows::Forms::TextBox());
 			this->Last_interaxis_group = (gcnew System::Windows::Forms::GroupBox());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->Final_angle = (gcnew System::Windows::Forms::GroupBox());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
 			this->Speed_group->SuspendLayout();
 			this->Size_group->SuspendLayout();
 			this->Depth_group->SuspendLayout();
+			this->B_BNKL_group->SuspendLayout();
 			this->D2_group->SuspendLayout();
 			this->Main_Speed_group->SuspendLayout();
 			this->Axis_group->SuspendLayout();
@@ -336,7 +384,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1576, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1501, 28);
 			this->menuStrip1->TabIndex = 2;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -376,7 +424,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Sav_group->Controls->Add(this->Sav_W1_110_value);
 			this->Sav_group->Location = System::Drawing::Point(18, 192);
 			this->Sav_group->Name = L"Sav_group";
-			this->Sav_group->Size = System::Drawing::Size(194, 329);
+			this->Sav_group->Size = System::Drawing::Size(194, 300);
 			this->Sav_group->TabIndex = 3;
 			this->Sav_group->TabStop = false;
 			this->Sav_group->Text = L"Формула Саверина";
@@ -445,7 +493,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Sav_results->Enabled = false;
 			this->Sav_results->Location = System::Drawing::Point(6, 222);
 			this->Sav_results->Name = L"Sav_results";
-			this->Sav_results->Size = System::Drawing::Size(182, 94);
+			this->Sav_results->Size = System::Drawing::Size(182, 72);
 			this->Sav_results->TabIndex = 4;
 			this->Sav_results->Text = L"";
 			// 
@@ -584,7 +632,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Size_group->Controls->Add(this->Gab_D1);
 			this->Size_group->Controls->Add(this->label10);
 			this->Size_group->Enabled = false;
-			this->Size_group->Location = System::Drawing::Point(218, 345);
+			this->Size_group->Location = System::Drawing::Point(18, 498);
 			this->Size_group->Name = L"Size_group";
 			this->Size_group->Size = System::Drawing::Size(194, 176);
 			this->Size_group->TabIndex = 12;
@@ -602,7 +650,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			// 
 			// Gab_calculate
 			// 
-			this->Gab_calculate->Location = System::Drawing::Point(52, 140);
+			this->Gab_calculate->Location = System::Drawing::Point(42, 148);
 			this->Gab_calculate->Name = L"Gab_calculate";
 			this->Gab_calculate->Size = System::Drawing::Size(92, 23);
 			this->Gab_calculate->TabIndex = 0;
@@ -635,31 +683,213 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			// 
 			// Depth_group
 			// 
-			this->Depth_group->Controls->Add(this->textBox1);
+			this->Depth_group->Controls->Add(this->B_BNKL_group);
+			this->Depth_group->Controls->Add(this->Prokladki);
+			this->Depth_group->Controls->Add(this->Set_D1_TD);
+			this->Depth_group->Controls->Add(this->label22);
+			this->Depth_group->Controls->Add(this->Synthetic_depth);
+			this->Depth_group->Controls->Add(this->n1_TD);
+			this->Depth_group->Controls->Add(this->Depth_results);
+			this->Depth_group->Controls->Add(this->D1_TD);
+			this->Depth_group->Controls->Add(this->Calculate_D1_TD);
+			this->Depth_group->Controls->Add(this->label23);
+			this->Depth_group->Controls->Add(this->label20);
+			this->Depth_group->Controls->Add(this->With_interlayer);
+			this->Depth_group->Controls->Add(this->label19);
+			this->Depth_group->Controls->Add(this->Syntetic_belt);
+			this->Depth_group->Controls->Add(this->Rubber_belt);
 			this->Depth_group->Controls->Add(this->label13);
 			this->Depth_group->Enabled = false;
 			this->Depth_group->Location = System::Drawing::Point(218, 31);
 			this->Depth_group->Name = L"Depth_group";
-			this->Depth_group->Size = System::Drawing::Size(194, 308);
+			this->Depth_group->Size = System::Drawing::Size(194, 643);
 			this->Depth_group->TabIndex = 12;
 			this->Depth_group->TabStop = false;
 			this->Depth_group->Text = L"Толщина ремня";
 			// 
-			// textBox1
+			// B_BNKL_group
 			// 
-			this->textBox1->Location = System::Drawing::Point(44, 44);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 22);
-			this->textBox1->TabIndex = 15;
+			this->B_BNKL_group->Controls->Add(this->BNKL);
+			this->B_BNKL_group->Controls->Add(this->B800_B820);
+			this->B_BNKL_group->Location = System::Drawing::Point(6, 134);
+			this->B_BNKL_group->Name = L"B_BNKL_group";
+			this->B_BNKL_group->Size = System::Drawing::Size(176, 100);
+			this->B_BNKL_group->TabIndex = 24;
+			this->B_BNKL_group->TabStop = false;
+			this->B_BNKL_group->Text = L"Модель ремня";
+			// 
+			// BNKL
+			// 
+			this->BNKL->AutoSize = true;
+			this->BNKL->Location = System::Drawing::Point(6, 57);
+			this->BNKL->Name = L"BNKL";
+			this->BNKL->Size = System::Drawing::Size(157, 20);
+			this->BNKL->TabIndex = 1;
+			this->BNKL->TabStop = true;
+			this->BNKL->Text = L"БНКЛ-65/ БНКЛ-65-2 ";
+			this->BNKL->UseVisualStyleBackColor = true;
+			// 
+			// B800_B820
+			// 
+			this->B800_B820->AutoSize = true;
+			this->B800_B820->Location = System::Drawing::Point(6, 25);
+			this->B800_B820->Name = L"B800_B820";
+			this->B800_B820->Size = System::Drawing::Size(99, 20);
+			this->B800_B820->TabIndex = 0;
+			this->B800_B820->TabStop = true;
+			this->B800_B820->Text = L"Б-800/Б820 \r\n";
+			this->B800_B820->UseVisualStyleBackColor = true;
+			// 
+			// Prokladki
+			// 
+			this->Prokladki->Enabled = false;
+			this->Prokladki->FormattingEnabled = true;
+			this->Prokladki->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"3", L"4", L"5", L"6" });
+			this->Prokladki->Location = System::Drawing::Point(30, 101);
+			this->Prokladki->Name = L"Prokladki";
+			this->Prokladki->Size = System::Drawing::Size(121, 24);
+			this->Prokladki->TabIndex = 23;
+			// 
+			// Set_D1_TD
+			// 
+			this->Set_D1_TD->Location = System::Drawing::Point(43, 614);
+			this->Set_D1_TD->Name = L"Set_D1_TD";
+			this->Set_D1_TD->Size = System::Drawing::Size(92, 23);
+			this->Set_D1_TD->TabIndex = 22;
+			this->Set_D1_TD->Text = L"Расчитать";
+			this->Set_D1_TD->UseVisualStyleBackColor = true;
+			this->Set_D1_TD->Click += gcnew System::EventHandler(this, &MyForm::Set_D1_TD_Click);
+			// 
+			// label22
+			// 
+			this->label22->AutoSize = true;
+			this->label22->Location = System::Drawing::Point(3, 545);
+			this->label22->Name = L"label22";
+			this->label22->Size = System::Drawing::Size(158, 32);
+			this->label22->TabIndex = 18;
+			this->label22->Text = L"Частота вращения\r\n меньшего шкива 1/мин:";
+			// 
+			// Synthetic_depth
+			// 
+			this->Synthetic_depth->Enabled = false;
+			this->Synthetic_depth->FormattingEnabled = true;
+			this->Synthetic_depth->Items->AddRange(gcnew cli::array< System::Object^  >(9) {
+				L"0,4", L"0,5", L"0,6", L"0,7", L"0,8", L"0,9",
+					L"1,0", L"1,1", L"1,2"
+			});
+			this->Synthetic_depth->Location = System::Drawing::Point(30, 281);
+			this->Synthetic_depth->Name = L"Synthetic_depth";
+			this->Synthetic_depth->Size = System::Drawing::Size(121, 24);
+			this->Synthetic_depth->TabIndex = 18;
+			this->Synthetic_depth->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::Synthetic_depth_SelectedIndexChanged);
+			// 
+			// n1_TD
+			// 
+			this->n1_TD->Enabled = false;
+			this->n1_TD->Location = System::Drawing::Point(35, 580);
+			this->n1_TD->Name = L"n1_TD";
+			this->n1_TD->Size = System::Drawing::Size(100, 22);
+			this->n1_TD->TabIndex = 17;
+			// 
+			// Depth_results
+			// 
+			this->Depth_results->Enabled = false;
+			this->Depth_results->Location = System::Drawing::Point(6, 337);
+			this->Depth_results->Name = L"Depth_results";
+			this->Depth_results->ReadOnly = true;
+			this->Depth_results->Size = System::Drawing::Size(176, 162);
+			this->Depth_results->TabIndex = 11;
+			this->Depth_results->Text = L"";
+			// 
+			// D1_TD
+			// 
+			this->D1_TD->Enabled = false;
+			this->D1_TD->Location = System::Drawing::Point(35, 520);
+			this->D1_TD->Name = L"D1_TD";
+			this->D1_TD->Size = System::Drawing::Size(100, 22);
+			this->D1_TD->TabIndex = 15;
+			// 
+			// Calculate_D1_TD
+			// 
+			this->Calculate_D1_TD->Location = System::Drawing::Point(43, 308);
+			this->Calculate_D1_TD->Name = L"Calculate_D1_TD";
+			this->Calculate_D1_TD->Size = System::Drawing::Size(92, 23);
+			this->Calculate_D1_TD->TabIndex = 11;
+			this->Calculate_D1_TD->Text = L"Расчитать";
+			this->Calculate_D1_TD->UseVisualStyleBackColor = true;
+			this->Calculate_D1_TD->Click += gcnew System::EventHandler(this, &MyForm::Calculate_D1_TD_Click);
+			// 
+			// label23
+			// 
+			this->label23->AutoSize = true;
+			this->label23->Location = System::Drawing::Point(3, 502);
+			this->label23->Name = L"label23";
+			this->label23->Size = System::Drawing::Size(176, 32);
+			this->label23->TabIndex = 16;
+			this->label23->Text = L"Диаметр меньшего шкива \r\nмм:";
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(12, 82);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(123, 16);
+			this->label20->TabIndex = 20;
+			this->label20->Text = L"Число прокладок:";
+			// 
+			// With_interlayer
+			// 
+			this->With_interlayer->AutoSize = true;
+			this->With_interlayer->Enabled = false;
+			this->With_interlayer->Location = System::Drawing::Point(15, 56);
+			this->With_interlayer->Name = L"With_interlayer";
+			this->With_interlayer->Size = System::Drawing::Size(128, 20);
+			this->With_interlayer->TabIndex = 20;
+			this->With_interlayer->Text = L"С прослойками";
+			this->With_interlayer->UseVisualStyleBackColor = true;
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(12, 18);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(78, 16);
+			this->label19->TabIndex = 19;
+			this->label19->Text = L"Тип ремня:";
+			// 
+			// Syntetic_belt
+			// 
+			this->Syntetic_belt->AutoSize = true;
+			this->Syntetic_belt->Location = System::Drawing::Point(15, 240);
+			this->Syntetic_belt->Name = L"Syntetic_belt";
+			this->Syntetic_belt->Size = System::Drawing::Size(129, 20);
+			this->Syntetic_belt->TabIndex = 18;
+			this->Syntetic_belt->TabStop = true;
+			this->Syntetic_belt->Text = L"Синтетический";
+			this->Syntetic_belt->UseVisualStyleBackColor = true;
+			this->Syntetic_belt->CheckedChanged += gcnew System::EventHandler(this, &MyForm::Syntetic_belt_CheckedChanged);
+			// 
+			// Rubber_belt
+			// 
+			this->Rubber_belt->AutoSize = true;
+			this->Rubber_belt->Location = System::Drawing::Point(15, 33);
+			this->Rubber_belt->Name = L"Rubber_belt";
+			this->Rubber_belt->Size = System::Drawing::Size(135, 20);
+			this->Rubber_belt->TabIndex = 17;
+			this->Rubber_belt->TabStop = true;
+			this->Rubber_belt->Text = L"Прорезиненный";
+			this->Rubber_belt->UseVisualStyleBackColor = true;
+			this->Rubber_belt->CheckedChanged += gcnew System::EventHandler(this, &MyForm::Rubber_belt_CheckedChanged);
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(12, 25);
+			this->label13->Location = System::Drawing::Point(18, 263);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(132, 16);
 			this->label13->TabIndex = 16;
 			this->label13->Text = L"Толщина ремня мм:";
+			this->label13->Click += gcnew System::EventHandler(this, &MyForm::label13_Click);
 			// 
 			// D2_group
 			// 
@@ -897,7 +1127,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			// Length_througth_interaxis
 			// 
 			this->Length_througth_interaxis->Controls->Add(this->LTI_Results);
-			this->Length_througth_interaxis->Controls->Add(this->button2);
+			this->Length_througth_interaxis->Controls->Add(this->Calc_length_of_belt);
 			this->Length_througth_interaxis->Controls->Add(this->label18);
 			this->Length_througth_interaxis->Controls->Add(this->Length_LTI);
 			this->Length_througth_interaxis->Controls->Add(this->Min_Length_2);
@@ -921,14 +1151,15 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->LTI_Results->TabIndex = 11;
 			this->LTI_Results->Text = L"";
 			// 
-			// button2
+			// Calc_length_of_belt
 			// 
-			this->button2->Location = System::Drawing::Point(48, 300);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(92, 23);
-			this->button2->TabIndex = 24;
-			this->button2->Text = L"Выбрать";
-			this->button2->UseVisualStyleBackColor = true;
+			this->Calc_length_of_belt->Location = System::Drawing::Point(48, 300);
+			this->Calc_length_of_belt->Name = L"Calc_length_of_belt";
+			this->Calc_length_of_belt->Size = System::Drawing::Size(92, 23);
+			this->Calc_length_of_belt->TabIndex = 24;
+			this->Calc_length_of_belt->Text = L"Выбрать";
+			this->Calc_length_of_belt->UseVisualStyleBackColor = true;
+			this->Calc_length_of_belt->Click += gcnew System::EventHandler(this, &MyForm::Calc_length_of_belt_Click);
 			// 
 			// label18
 			// 
@@ -941,7 +1172,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			// 
 			// Length_LTI
 			// 
-			this->Length_LTI->Location = System::Drawing::Point(48, 272);
+			this->Length_LTI->Location = System::Drawing::Point(74, 272);
 			this->Length_LTI->Name = L"Length_LTI";
 			this->Length_LTI->Size = System::Drawing::Size(100, 22);
 			this->Length_LTI->TabIndex = 29;
@@ -1079,11 +1310,22 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->richTextBox1->TabIndex = 19;
 			this->richTextBox1->Text = L"";
 			// 
+			// Final_angle
+			// 
+			this->Final_angle->Enabled = false;
+			this->Final_angle->Location = System::Drawing::Point(1295, 307);
+			this->Final_angle->Name = L"Final_angle";
+			this->Final_angle->Size = System::Drawing::Size(200, 214);
+			this->Final_angle->TabIndex = 20;
+			this->Final_angle->TabStop = false;
+			this->Final_angle->Text = L"Угол обхвата на меньшем шкиве";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1576, 533);
+			this->ClientSize = System::Drawing::Size(1501, 686);
+			this->Controls->Add(this->Final_angle);
 			this->Controls->Add(this->Last_interaxis_group);
 			this->Controls->Add(this->Lifetime_group);
 			this->Controls->Add(this->Length_througth_interaxis);
@@ -1099,7 +1341,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
-			this->Text = L"Параметры передачи";
+			this->Text = L"Проектировочный расчёт";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->D1_Group->ResumeLayout(false);
 			this->D1_Group->PerformLayout();
@@ -1113,6 +1355,8 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			this->Size_group->PerformLayout();
 			this->Depth_group->ResumeLayout(false);
 			this->Depth_group->PerformLayout();
+			this->B_BNKL_group->ResumeLayout(false);
+			this->B_BNKL_group->PerformLayout();
 			this->D2_group->ResumeLayout(false);
 			this->D2_group->PerformLayout();
 			this->Main_Speed_group->ResumeLayout(false);
@@ -1144,10 +1388,10 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 
 
 
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		this->Sav_group->Enabled = false;
 	}
-	
+#pragma region Math_Functions
 		double Shkiv_D2(double epsilon , char P_type) {
 			  switch (P_type) {
 			  case 'U': return D1 * (1 - epsilon) * u;
@@ -1198,8 +1442,63 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 		double Calculate_alpha() {
 			return 180 - (D2_main * D1 / a) * 57;
 		}
+#pragma endregion
+
+#pragma region Interface
+	private: System::Void Rubber_belt_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (Rubber_belt->Checked) {
+		Prokladki->Enabled = true;
+		With_interlayer->Enabled = true;
+		B_BNKL_group->Enabled = true;
+	}
+	else {
+		Prokladki->Enabled = false;
+		With_interlayer->Enabled = false;
+		B_BNKL_group->Enabled = false;
+	}
+}
+	private: System::Void I_freq_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if(!TB_check(this->I_freq->Text)){}
+	else {
+		if ((I_Inhibitor->Text->Contains("5") && (Convert::ToDouble(this->I_freq->Text)) <= 5) || (I_Inhibitor->Text->Contains("50") && (Convert::ToDouble(this->I_freq->Text)) <= 50)) {
+			Max_Length->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->I_freq->Text)) + " мм";
+		}
+		else {
+			Max_Length->Text = "Минимальная длина:\n" + "??? мм";
+		}
+	}
+}
+	private: System::Void i_freq_LTI_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (!TB_check(this->i_freq_LTI->Text)) {}
+	else {
+		if ((I_Inhibitor_2->Text->Contains("5") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 5 ) || (I_Inhibitor_2->Text->Contains("50") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 50)) {
+			Min_Length_2->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->i_freq_LTI->Text)) + " мм";
+		}
+		else {
+			Min_Length_2->Text = "Минимальная длина:\n" + "??? мм";
+		}
+	}
+}
+	private: System::Void выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Close();
+	}
+	private: System::Void сброситьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		D1_Group->Enabled = true;
+		D2_group->Enabled = false;
+		Sav_group->Enabled = false;
+		Sav_results->Clear();
+		D2_results->Clear();
+	}
+	private: System::Void Syntetic_belt_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (Syntetic_belt->Checked) {
+		Synthetic_depth->Enabled = true;
+	}
+	else Synthetic_depth->Enabled = false;
+}
+#pragma endregion
 
 
+#pragma region MainFunctions
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (this->Saverin->Checked == true || this->Belt_speed->Checked==true || this->Belt_depth->Checked==true || this->Gabarite->Checked==true) {
 			this->D1_Group->Enabled = false;
@@ -1239,7 +1538,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 					if (this->Sav_W1_110_value->Checked == true)  Saverin_function(sav_N, n1, 110);
 					else Saverin_function(sav_N, n1, 130);
 					n1_shkiv = Convert::ToDouble(this->Sav_n1_value->Text);
-					D1 = Round_diametr(D1);
+					//D1 = Round_diametr(D1);
 					Sav_results->Text += "Диаметр меньшего шкива (мм): " + D1 + "\n";
 					this->D2_group->Enabled = true;
 					this->Sav_group->Enabled = false;
@@ -1248,9 +1547,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 
 		}
 	}
-	private: System::Void выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		Close();
-	}
+	
 	private: System::Void Calc_D2_Click(System::Object^ sender, System::EventArgs^ e) {
 	if(!this->epsilon_002->Checked && !this->epsilon_003->Checked)MessageBox::Show("Выберите значение коэффициента скольжения ремня 0.02 или 0.03!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 	else {
@@ -1271,7 +1568,8 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			D2[0] = Round_diametr(D2[0]);
 			D2[1] = Round_diametr(D2[1]);
 			D2_main = D2[1];
-			this->D2_results->Text += "Диаметр большего шкива (мм):\nДля понижающих передач: " + D2[0] + "\nДля повышающих передач: " + D2[1] + "\nПередаточное число: " + u;
+			D1 = Round_diametr(D1);
+			this->D2_results->Text += "Диаметр большего шкива:\nДля понижающих передач: " + D2[0] + " мм\nДля повышающих передач: " + D2[1] +" мм\nДиаметр меньшего шкива: " +D1 +" мм\nПередаточное число: " + u;
 			v_belt=Caluclate_belt_speed();
 			this->D2_group->Enabled = false;
 			this->Main_Speed_group->Enabled = true;
@@ -1284,19 +1582,13 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 		if (!TB_check(this->Gab_D1->Text) || !TB_check(this->Gab_n1->Text)) { MessageBox::Show("Проверьте правильность введённых данных!"); }
 		else {
 			D1 = Convert::ToDouble(this->Gab_D1->Text);
-			D1 = Round_diametr(D1);
+			//D1 = Round_diametr(D1);
 			n1_shkiv = Convert::ToDouble(this->Gab_n1->Text);
 			this->D2_group->Enabled = true;
 			this->Size_group->Enabled = false;
 		}
 	}
-	private: System::Void сброситьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		D1_Group->Enabled = true;
-		D2_group->Enabled = false;
-		Sav_group->Enabled = false;
-		Sav_results->Clear();
-		D2_results->Clear();
-	}
+	
 	private: System::Void Calculate_D1_speed_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (this->Type_1->Checked == false && this->Type_2->Checked == false && this->Type_3->Checked == false) { MessageBox::Show("Выберите тип ремня!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
@@ -1320,7 +1612,7 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 			}
 
 		}
-		D1 = Round_diametr(D1);
+		//D1 = Round_diametr(D1);
 		n1_shkiv = Convert::ToDouble(this->BS_n1->Text);
 		SG_D1_results->Text += "Диаметр меньшего шкива (мм): " + D1 + "\n";
 		this->D2_group->Enabled = true;
@@ -1362,29 +1654,80 @@ private: System::Windows::Forms::RichTextBox^ richTextBox1;
 
 	}
 }
-private: System::Void I_freq_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	if(!TB_check(this->I_freq->Text)){}
+	
+	private: System::Void Select_length_Click(System::Object^ sender, System::EventArgs^ e) {//Длина ремня WIP
+	if(!TB_check(this->Length_in_gr->Text) || !TB_check(this->I_freq->Text))MessageBox::Show("Какую длину ремня вы хотите выбрать?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 	else {
-		if ((I_Inhibitor->Text->Contains("5") && (Convert::ToDouble(this->I_freq->Text)) <= 5) || (I_Inhibitor->Text->Contains("50") && (Convert::ToDouble(this->I_freq->Text)) <= 50)) {
-			Max_Length->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->I_freq->Text)) + " мм";
-		}
-		else {
-			Max_Length->Text = "Минимальная длина:\n" + "??? мм";
+		if (Convert::ToDouble(this->Length_in_gr->Text)< Length_check(Convert::ToDouble(this->I_freq->Text))) {
+			MessageBox::Show("Слишком маленькая длина ремня!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		}
 	}
+
 }
-private: System::Void i_freq_LTI_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (!TB_check(this->i_freq_LTI->Text)) {}
-	else {
-		if ((I_Inhibitor_2->Text->Contains("5") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 5 ) || (I_Inhibitor_2->Text->Contains("50") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 50)) {
-			Min_Length_2->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->i_freq_LTI->Text)) + " мм";
-		}
+	private: System::Void Calc_length_of_belt_Click(System::Object^ sender, System::EventArgs^ e) {//Длина ремня WIP
+	
+
+	}
+	private: System::Void Calculate_D1_TD_Click(System::Object^ sender, System::EventArgs^ e) {
+		if(Rubber_belt->Checked==false && Syntetic_belt->Checked==false)MessageBox::Show("Какой ремень?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		else {
-			Min_Length_2->Text = "Минимальная длина:\n" + "??? мм";
+			if (Syntetic_belt->Checked) {
+				if (!Synthetic_depth->SelectedItem) { MessageBox::Show("Какая толщина ремня?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning); }
+				else {
+					D1 = D1_synthetic(Convert::ToDouble(Synthetic_depth->SelectedItem->ToString()));
+					Depth_results->Text += "Минимальный диаметр меньшего шкива: " + D1 + " мм";
+				}
+			}
+			else {
+				if(!Prokladki->SelectedItem)MessageBox::Show("Сколько прокладок?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+				else {
+					if (B800_B820->Checked == false && BNKL->Checked == false)MessageBox::Show("Какая модель ремня?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+					else {
+						bool Interlay=false;
+						if (With_interlayer->Checked) Interlay = true;
+						if (B800_B820->Checked) {
+							D1 = D1_rubber(1, Convert::ToInt64(Prokladki->SelectedItem->ToString()), Interlay);
+							Depth_results->Text += "Допустимый минимальный диаметр меньшего шкива: " + D1 + " мм\n Рекомендуемый минимальный диаметр меньшего шкива: "+ D1_rubber_R(1, Convert::ToInt64(Prokladki->SelectedItem->ToString()), Interlay); +" мм";
+						}
+						else {
+							D1 = D1_rubber(2, Convert::ToInt64(Prokladki->SelectedItem->ToString()), Interlay);
+							Depth_results->Text += "Допустимый минимальный диаметр меньшего шкива: " + D1 + " мм\n Рекомендуемый минимальный диаметр меньшего шкива: " + D1_rubber_R(2, Convert::ToInt64(Prokladki->SelectedItem->ToString()), Interlay); +" мм";
+						}
+					}
+				}
+			}
+			if (D1 != NULL) {
+				Depth_results->Enabled = true;
+				Rubber_belt->Enabled = false;
+				Syntetic_belt->Enabled = false;
+				Calculate_D1_TD->Enabled = false;
+				Set_D1_TD->Enabled = true;
+				D1_TD->Enabled = true;
+				n1_TD->Enabled = true;
+			}
+		}
+
+	}
+	private: System::Void Set_D1_TD_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (!TB_check(D1_TD->Text) && !TB_check(n1_TD->Text)) MessageBox::Show("Вы правильно ввели данные?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		else {
+			if(Convert::ToDouble(D1_TD->Text)<D1)MessageBox::Show("Почему диаметр меньше допустимого значения?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			else {
+				n1_shkiv = Convert::ToDouble(n1_TD->Text);
+				D1 = Convert::ToDouble(D1_TD->Text);
+				Depth_group -> Enabled = false;
+				D2_group->Enabled = true;
+			}
 		}
 	}
+#pragma endregion
+
+
+	
+
+private: System::Void Synthetic_depth_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void Select_length_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
   

@@ -92,13 +92,10 @@ public:
 
 
 };
-class Belt_width_syntetic {
-	double Depth; double D_min;
-	Belt_width_syntetic(double Depth, double D_min) { this->Depth = Depth; this->D_min = D_min; }
-};
+
 
 class Acceptable_Length {// Таблица 1.3
-	int type;
+	int type;//1 - CКН-40 2- Наиритовый латекс
 	double Depth[2];
 	double Width;
 	double Inner_length[9];
@@ -116,8 +113,38 @@ public:
 		Inner_length[7] = IL_8;
 		Inner_length[8] = IL_9;
 	}
+	Acceptable_Length() {};
+	double Compare_length(double L, int i) {
+		double R_L = Inner_length[i]-L;
+		//if (R_L < 0)R_L *= -1;
+		return R_L;
+	}
+	double Get_Inner_Length(int i) {return Inner_length[i];}
 };
 
+class Synthetic_belt {
+private:
+	double Depth;
+	double D_min;
+public:
+	Synthetic_belt(double depth, double D) : Depth{depth}, D_min{D}{}
+	double get_Depth() { return Depth; }
+	double get_Diametr() { return D_min; }
+};
+
+class Rubber_belt {
+	int type; //1-Б 2-БНКЛ
+	int gaskets;//Число прокладок
+	//bool IsInterlayer;
+	double D_min_Rec;
+	double D_min_dop;
+public:
+	Rubber_belt(int Type, int Gask, double D_min_1, double D_min_2) :type{ Type }, gaskets{ Gask }, D_min_Rec{ D_min_1 }, D_min_dop{ D_min_2 } {}
+	int Get_type() { return type; }
+	int get_gaskets() { return gaskets; }
+	double get_R_Diametr() { return D_min_Rec; }
+	double get_D_Diametr(){ return D_min_dop; }
+};
 
 
 
@@ -134,7 +161,7 @@ public:
 //};
 #pragma region Tables
 Belt_light Belts_light[]{//Для расчётов
-	Belt_light(1,30,3,13.5,0,30,0,40),//Тканевы прорезиненный
+	Belt_light(1,30,3,13.5,0,30,0,40),//Тканевыq прорезиненный
 	Belt_light(2,100,0.4,0.6,50,70,100,150),//Синтетический тип 1
 	Belt_light(3,50,1,1.2,50,70,100,150)//Синтетический тип 2
 };
@@ -157,11 +184,54 @@ Acceptable_Diametr Accept_Diams[]{//13.18
 	Acceptable_Diametr(315,3.2,1,200,2,180),
 };
 
-
-
-Acceptable_Length Acept_Lengths[]{
-	Acceptable_Length(1,0.4,0.6,10,250,260,280,300,320,340,0,0,0,20)
+Synthetic_belt Synthetic_belts[]{//Синтетические ремни
+	Synthetic_belt(0.4,28),
+	Synthetic_belt(0.5,36),
+	Synthetic_belt(0.6,45),
+	Synthetic_belt(0.7,56),
+	Synthetic_belt(0.8,63),
+	Synthetic_belt(0.9,71),
+	Synthetic_belt(1.0,80),
+	Synthetic_belt(1.1,90),
+	Synthetic_belt(1.2,100)
 };
+
+
+Acceptable_Length Accept_Lengths[]{//Таблица 1.3
+	Acceptable_Length(1,0.4,0.6,10,250,260,280,300,320,340,0,0,0,20),
+	Acceptable_Length(1,0.4,0.6,15,350, 380, 400,420,450,480,0,0,0,20),
+	Acceptable_Length(1,0.4,0.6,20,500,530,560,600,630,670,0,0,0,20),
+	Acceptable_Length(1,0.4,0.6,25,710,750,800,850,900,950,0,0,0,25),
+	Acceptable_Length(1,0.4,0.6,30,1000,1060,1120,1180, 1250,1320,1400,0,0,25),
+	Acceptable_Length(2,1.0,1.2,40,1500,1600,1700,1800,1900,2000,0,0,0,40),
+	Acceptable_Length(2,1.0,1.2,50,2120,2240,2360,2500,2650,2800,3000,3150,3350,45),
+	Acceptable_Length(2,1.0,1.2,60,2120,2240,2360,2500,2650,2800,3000,3150,3350,45),
+	Acceptable_Length(2,1.0,1.2,80,3550, 3750, 4000,0,0,0,0,0,0,55),
+	Acceptable_Length(2,1.0,1.2,100,3550, 3750, 4000,0,0,0,0,0,0,55)
+};
+
+Rubber_belt Rubber_belts_With_interlayer[]{//C прослоqками
+	Rubber_belt(1,3,180,140),
+	Rubber_belt(1,4,224,180),
+	Rubber_belt(1,5,315,224),
+	Rubber_belt(1,6,355,315),
+	Rubber_belt(2,3,140,112),
+	Rubber_belt(2,4,180,140),
+	Rubber_belt(2,5,224,180),
+	Rubber_belt(2,6,280,200)
+};
+
+Rubber_belt Rubber_belts_Without_interlayer[]{//Без прослоек
+	Rubber_belt(1,3,140,112),
+	Rubber_belt(1,4,200,140),
+	Rubber_belt(1,5,250,180),
+	Rubber_belt(1,6,315,224),
+	Rubber_belt(2,3,125,90),
+	Rubber_belt(2,4,160,112),
+	Rubber_belt(2,5,200,140),
+	Rubber_belt(2,6,224,180)
+};
+
 #pragma endregion
 double Get_speed(int type) {
 	for (int i = 0; i < 3; i++) {
@@ -192,4 +262,50 @@ double Round_diametr(double D) {
 	}
 	AC = Accept_Diams[Point];
 	return AC.Get_Diametr();
+}
+
+double Round_Length(double Length) {
+	Acceptable_Length A_L;
+	double Compare=Accept_Lengths[0].Compare_length(Length,0);
+	for (int i = 0; i < 10; i++) {
+
+	}
+
+	return 0;
+}
+
+double D1_synthetic(double Depth) {
+	int Counter = 0;
+	double D1;
+	while (Synthetic_belts[Counter].get_Depth()!= Depth) {
+		Counter++;
+	}
+	D1 = Synthetic_belts[Counter].get_Diametr();
+	return D1;
+
+}
+
+double D1_rubber(int type, int gaskets,bool Interlayer) {
+	int count = 0;
+	
+	if (Interlayer == true) {
+		while (Rubber_belts_With_interlayer[count].Get_type() != type && Rubber_belts_With_interlayer[count].get_gaskets() != gaskets) count++;
+		return Rubber_belts_With_interlayer[count].get_D_Diametr();
+	}
+	else {
+		while (Rubber_belts_Without_interlayer[count].Get_type() != type && Rubber_belts_Without_interlayer[count].get_gaskets() != gaskets) count++;
+		return Rubber_belts_Without_interlayer[count].get_D_Diametr();
+	}
+}
+double D1_rubber_R(int type, int gaskets, bool Interlayer) {
+	int count = 0;
+
+	if (Interlayer == true) {
+		while (Rubber_belts_With_interlayer[count].Get_type() != type && Rubber_belts_With_interlayer[count].get_gaskets() != gaskets) count++;
+		return Rubber_belts_With_interlayer[count].get_R_Diametr();
+	}
+	else {
+		while (Rubber_belts_Without_interlayer[count].Get_type() != type && Rubber_belts_Without_interlayer[count].get_gaskets() != gaskets) count++;
+		return Rubber_belts_Without_interlayer[count].get_R_Diametr();
+	}
 }
