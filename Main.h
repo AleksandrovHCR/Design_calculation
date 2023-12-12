@@ -24,7 +24,7 @@ namespace Êóğñîâàÿğàáîòà {
 		MyForm(void)
 		{
 			InitializeComponent();
-			saveFileDialog1->Filter="Text files(*.txt)|*.txt|All files(*.*)|*.*";
+			
 			//
 			//TODO: äîáàâüòå êîä êîíñòğóêòîğà
 			//
@@ -179,8 +179,8 @@ private: System::Windows::Forms::Button^ Calculate_final_angle;
 private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 private: System::Windows::Forms::GroupBox^ Save_final;
 private: System::Windows::Forms::RichTextBox^ Last_results;
-private: System::Windows::Forms::ToolStripMenuItem^ ñîõğàíèòüToolStripMenuItem;
-private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+
+
 
 
 
@@ -217,7 +217,6 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ğàñ÷¸òûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ñáğîñèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ñîõğàíèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Sav_group = (gcnew System::Windows::Forms::GroupBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -314,7 +313,6 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			this->Angle_B_Rubber = (gcnew System::Windows::Forms::RadioButton());
 			this->Save_final = (gcnew System::Windows::Forms::GroupBox());
 			this->Last_results = (gcnew System::Windows::Forms::RichTextBox());
-			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
@@ -416,10 +414,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			// 
 			// ğàñ÷¸òûToolStripMenuItem
 			// 
-			this->ğàñ÷¸òûToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->ñáğîñèòüToolStripMenuItem,
-					this->ñîõğàíèòüToolStripMenuItem
-			});
+			this->ğàñ÷¸òûToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ñáğîñèòüToolStripMenuItem });
 			this->ğàñ÷¸òûToolStripMenuItem->Name = L"ğàñ÷¸òûToolStripMenuItem";
 			this->ğàñ÷¸òûToolStripMenuItem->Size = System::Drawing::Size(79, 24);
 			this->ğàñ÷¸òûToolStripMenuItem->Text = L"Ğàñ÷¸òû";
@@ -427,17 +422,9 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			// ñáğîñèòüToolStripMenuItem
 			// 
 			this->ñáğîñèòüToolStripMenuItem->Name = L"ñáğîñèòüToolStripMenuItem";
-			this->ñáğîñèòüToolStripMenuItem->Size = System::Drawing::Size(166, 26);
+			this->ñáğîñèòüToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->ñáğîñèòüToolStripMenuItem->Text = L"Ñáğîñèòü";
 			this->ñáğîñèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñáğîñèòüToolStripMenuItem_Click);
-			// 
-			// ñîõğàíèòüToolStripMenuItem
-			// 
-			this->ñîõğàíèòüToolStripMenuItem->Enabled = false;
-			this->ñîõğàíèòüToolStripMenuItem->Name = L"ñîõğàíèòüToolStripMenuItem";
-			this->ñîõğàíèòüToolStripMenuItem->Size = System::Drawing::Size(166, 26);
-			this->ñîõğàíèòüToolStripMenuItem->Text = L"Ñîõğàíèòü";
-			this->ñîõğàíèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñîõğàíèòüToolStripMenuItem_Click);
 			// 
 			// âûõîäToolStripMenuItem
 			// 
@@ -1321,7 +1308,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			// 
 			// I_freq
 			// 
-			this->I_freq->Location = System::Drawing::Point(74, 87);
+			this->I_freq->Location = System::Drawing::Point(48, 86);
 			this->I_freq->Name = L"I_freq";
 			this->I_freq->Size = System::Drawing::Size(100, 22);
 			this->I_freq->TabIndex = 18;
@@ -1617,11 +1604,36 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 		Close();
 	}
 	private: System::Void ñáğîñèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*D1_Group->Enabled = true;
+		D1 = D2_main = u = n1_shkiv = v_belt = a = L = NULL; Belt_type = NULL;
+		D1_Group->Enabled = true;
 		D2_group->Enabled = false;
+		Depth_group->Enabled = false;
+		Size_group->Enabled = false;
+		Speed_group->Enabled = false;
 		Sav_group->Enabled = false;
-		Sav_results->Clear();
-		D2_results->Clear();*/
+		Axis_group->Enabled = false;
+		Save_final->Enabled = false;
+		Last_interaxis_group->Enabled = false;
+		Main_Speed_group->Enabled = false;
+		Length_group->Enabled = false;
+		Lifetime_group->Enabled = false;
+		Length_througth_interaxis->Enabled = false;
+		Final_angle->Enabled = false;
+		Sav_results->Clear(); Sav_n1_value->Clear(); Sav_N_value->Clear();
+		Gab_D1->Clear(); Gab_n1->Clear();
+		D1_TD->Clear(); n1_TD->Clear(); BS_n1->Clear(); SG_D1_results->Clear();
+		D2_results->Clear(); D2_n2_value->Clear(); Main_speed->Clear();
+		Axis_result->Clear(); Last_interaxis_result->Clear(); Length_in_gr->Clear(); Last_results->Clear();
+		LTI_Results->Clear(); Length_LTI->Clear(); I_freq->Clear(); i_freq_LTI->Clear();
+		Final_angle_results->Clear();
+		Belt_depth->Checked = false; Saverin->Checked = false; Sav_W1_110_value->Checked = false; Sav_W1_130_value->Checked = false;
+		Gabarite->Checked = false;
+		Belt_speed->Checked = false;
+		Rubber_belt->Checked = false; Syntetic_belt->Checked = false; With_interlayer->Checked = false;
+		B800_B820->Checked = false; BNKL->Checked = false; Type_1->Checked = false; Type_2->Checked = false; Type_3->Checked = false;
+		epsilon_002->Checked = false; epsilon_003->Checked = false; Middle_speed->Checked = false; High_speed_low_drag->Checked = false;
+		Length_interaxis->Checked = false; Length_lifetime->Checked = false;
+		Angle_B_Rubber->Checked = false;Angle_B_Synthetic->Checked = false;
 	}
 	private: System::Void Syntetic_belt_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (Syntetic_belt->Checked) {
@@ -1769,16 +1781,15 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 	else {
 		if (Length_lifetime->Checked) {
 			Length_group->Enabled = false;
-			if (High_speed_low_drag->Checked) I_Inhibitor->Text += 50;
-			else  I_Inhibitor->Text += 5;
+			if (High_speed_low_drag->Checked) I_Inhibitor->Text = "Íå áîëåå: 50";
+			else  I_Inhibitor->Text += "Íå áîëåå: 5";
 			this->Lifetime_group->Enabled = true;
 			this->Length_group->Enabled = false;
 
 		}
 		else {
-			if (High_speed_low_drag->Checked) I_Inhibitor_2->Text += 50;
-			
-			else I_Inhibitor_2->Text += 5;
+			if (High_speed_low_drag->Checked) I_Inhibitor_2->Text = "Íå áîëåå: 50";
+			else I_Inhibitor_2->Text = "Íå áîëåå: 5";
 			this->Length_group->Enabled = false;
 			this->Length_througth_interaxis->Enabled = true;
 			L = Length();
@@ -1938,7 +1949,7 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 			break;
 		}
 		Save_final->Enabled = true;
-		//ñîõğàíèòüToolStripMenuItem->Enabled = true;
+		
 		Last_results->Enabled = true;
 		Last_results->Text = "Óãîë íà ìåíüøåì øêèâå: "+alpha_1+"\nÏåğåäàòî÷íîå ÷èñëî: "+u+"\nÄèàìåòğ ìåíüøåãî øêèâà: "+D1+" ìì\nÄèàìåòğ áîëüøåãî øêèâà: "+D2_main+" ìì"+
 			"\nÑêîğîñòü ğåìíÿ: "+v_belt+" ì/ñ\nÄëèíà ğåìíÿ: "+L+" ìì\nÌåæîñåâîå ğàññòîÿíèå: "+a+" ìì\nÒèï ğåìíÿ: ";
@@ -1947,19 +1958,6 @@ private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 }
 #pragma endregion
 
-
-	
-
-
-	
-private: System::Void ñîõğàíèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	
-	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel) {
-		return;
-	}
-	System::IO::File::WriteAllText(saveFileDialog1->FileName, Last_results->Text);
-	MessageBox::Show("Ôàéë ñîõğàí¸í.", "Ïğåäóïğåæäåíèå", MessageBoxButtons::OK, MessageBoxIcon::Warning);
-}
 };
   
 	
