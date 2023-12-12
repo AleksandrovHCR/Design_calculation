@@ -24,6 +24,7 @@ namespace Курсоваяработа {
 		MyForm(void)
 		{
 			InitializeComponent();
+			saveFileDialog1->Filter="Text files(*.txt)|*.txt|All files(*.*)|*.*";
 			//
 			//TODO: добавьте код конструктора
 			//
@@ -179,6 +180,7 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 private: System::Windows::Forms::GroupBox^ Save_final;
 private: System::Windows::Forms::RichTextBox^ Last_results;
 private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
+private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
 
 
 
@@ -215,6 +217,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->расчётыToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->сброситьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->сохранитьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->выходToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Sav_group = (gcnew System::Windows::Forms::GroupBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -311,7 +314,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 			this->Angle_B_Rubber = (gcnew System::Windows::Forms::RadioButton());
 			this->Save_final = (gcnew System::Windows::Forms::GroupBox());
 			this->Last_results = (gcnew System::Windows::Forms::RichTextBox());
-			this->сохранитьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
@@ -424,9 +427,17 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 			// сброситьToolStripMenuItem
 			// 
 			this->сброситьToolStripMenuItem->Name = L"сброситьToolStripMenuItem";
-			this->сброситьToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->сброситьToolStripMenuItem->Size = System::Drawing::Size(166, 26);
 			this->сброситьToolStripMenuItem->Text = L"Сбросить";
 			this->сброситьToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::сброситьToolStripMenuItem_Click);
+			// 
+			// сохранитьToolStripMenuItem
+			// 
+			this->сохранитьToolStripMenuItem->Enabled = false;
+			this->сохранитьToolStripMenuItem->Name = L"сохранитьToolStripMenuItem";
+			this->сохранитьToolStripMenuItem->Size = System::Drawing::Size(166, 26);
+			this->сохранитьToolStripMenuItem->Text = L"Сохранить";
+			this->сохранитьToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::сохранитьToolStripMenuItem_Click);
 			// 
 			// выходToolStripMenuItem
 			// 
@@ -1421,13 +1432,6 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 			this->Last_results->TabIndex = 20;
 			this->Last_results->Text = L"";
 			// 
-			// сохранитьToolStripMenuItem
-			// 
-			this->сохранитьToolStripMenuItem->Enabled = false;
-			this->сохранитьToolStripMenuItem->Name = L"сохранитьToolStripMenuItem";
-			this->сохранитьToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->сохранитьToolStripMenuItem->Text = L"Сохранить";
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -1613,11 +1617,11 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 		Close();
 	}
 	private: System::Void сброситьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		D1_Group->Enabled = true;
+		/*D1_Group->Enabled = true;
 		D2_group->Enabled = false;
 		Sav_group->Enabled = false;
 		Sav_results->Clear();
-		D2_results->Clear();
+		D2_results->Clear();*/
 	}
 	private: System::Void Syntetic_belt_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (Syntetic_belt->Checked) {
@@ -1934,7 +1938,7 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 			break;
 		}
 		Save_final->Enabled = true;
-		сохранитьToolStripMenuItem->Enabled = true;
+		//сохранитьToolStripMenuItem->Enabled = true;
 		Last_results->Enabled = true;
 		Last_results->Text = "Угол на меньшем шкиве: "+alpha_1+"\nПередаточное число: "+u+"\nДиаметр меньшего шкива: "+D1+" мм\nДиаметр большего шкива: "+D2_main+" мм"+
 			"\nСкорость ремня: "+v_belt+" м/с\nДлина ремня: "+L+" мм\nМежосевое расстояние: "+a+" мм\nТип ремня: ";
@@ -1948,6 +1952,14 @@ private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
 
 
 	
+private: System::Void сохранитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	if (saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::Cancel) {
+		return;
+	}
+	System::IO::File::WriteAllText(saveFileDialog1->FileName, Last_results->Text);
+	MessageBox::Show("Файл сохранён.", "Предупреждение", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+}
 };
   
 	
