@@ -265,13 +265,18 @@ double Round_diametr(double D) {
 }
 
 double Round_Length(double Length) {
-	Acceptable_Length A_L;
+	Acceptable_Length A_L;//Объект содержащий нужное СЗ
+	int value;//Номер СЗ
 	double Compare=Accept_Lengths[0].Compare_length(Length,0);
 	for (int i = 0; i < 10; i++) {
-
+		for (int j = 0; j < 9; j++) {
+			if (Compare > Accept_Lengths[i].Compare_length(Length, j) && Accept_Lengths[i].Compare_length(Length, j) >= 0) {
+				A_L = Accept_Lengths[i];
+				value = j;
+			}
+		}
 	}
-
-	return 0;
+	return A_L.Get_Inner_Length(value);
 }
 
 double D1_synthetic(double Depth) {

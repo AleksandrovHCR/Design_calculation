@@ -2,6 +2,7 @@
 #pragma once
 #include <math.h>
 #include <string>
+#include<time.h>
 #include "Selection_tablets.h"
 
 namespace Курсоваяработа {
@@ -142,7 +143,9 @@ private: System::Windows::Forms::Label^ I_Inhibitor_2;
 private: System::Windows::Forms::Label^ label21;
 private: System::Windows::Forms::TextBox^ i_freq_LTI;
 private: System::Windows::Forms::GroupBox^ Last_interaxis_group;
-private: System::Windows::Forms::RichTextBox^ richTextBox1;
+private: System::Windows::Forms::RichTextBox^ Last_interaxis_result;
+
+
 private: System::Windows::Forms::Label^ label19;
 private: System::Windows::Forms::RadioButton^ Syntetic_belt;
 private: System::Windows::Forms::RadioButton^ Rubber_belt;
@@ -168,6 +171,12 @@ private: System::Windows::Forms::ComboBox^ Prokladki;
 private: System::Windows::Forms::GroupBox^ B_BNKL_group;
 private: System::Windows::Forms::RadioButton^ BNKL;
 private: System::Windows::Forms::RadioButton^ B800_B820;
+private: System::Windows::Forms::Label^ label24;
+private: System::Windows::Forms::RadioButton^ Angle_B_Synthetic;
+private: System::Windows::Forms::RadioButton^ Angle_B_Rubber;
+private: System::Windows::Forms::Button^ Calculate_final_angle;
+private: System::Windows::Forms::RichTextBox^ Final_angle_results;
+
 
 
 
@@ -289,8 +298,13 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->I_freq = (gcnew System::Windows::Forms::TextBox());
 			this->Last_interaxis_group = (gcnew System::Windows::Forms::GroupBox());
-			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->Last_interaxis_result = (gcnew System::Windows::Forms::RichTextBox());
 			this->Final_angle = (gcnew System::Windows::Forms::GroupBox());
+			this->Final_angle_results = (gcnew System::Windows::Forms::RichTextBox());
+			this->Calculate_final_angle = (gcnew System::Windows::Forms::Button());
+			this->label24 = (gcnew System::Windows::Forms::Label());
+			this->Angle_B_Synthetic = (gcnew System::Windows::Forms::RadioButton());
+			this->Angle_B_Rubber = (gcnew System::Windows::Forms::RadioButton());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
@@ -305,6 +319,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			this->Length_througth_interaxis->SuspendLayout();
 			this->Lifetime_group->SuspendLayout();
 			this->Last_interaxis_group->SuspendLayout();
+			this->Final_angle->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -1137,7 +1152,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			this->Length_througth_interaxis->Enabled = false;
 			this->Length_througth_interaxis->Location = System::Drawing::Point(1080, 185);
 			this->Length_througth_interaxis->Name = L"Length_througth_interaxis";
-			this->Length_througth_interaxis->Size = System::Drawing::Size(209, 336);
+			this->Length_througth_interaxis->Size = System::Drawing::Size(209, 489);
 			this->Length_througth_interaxis->TabIndex = 17;
 			this->Length_througth_interaxis->TabStop = false;
 			this->Length_througth_interaxis->Text = L"Длина ремня через межосевое расстояние";
@@ -1147,13 +1162,13 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			this->LTI_Results->Enabled = false;
 			this->LTI_Results->Location = System::Drawing::Point(6, 41);
 			this->LTI_Results->Name = L"LTI_Results";
-			this->LTI_Results->Size = System::Drawing::Size(191, 70);
+			this->LTI_Results->Size = System::Drawing::Size(191, 166);
 			this->LTI_Results->TabIndex = 11;
 			this->LTI_Results->Text = L"";
 			// 
 			// Calc_length_of_belt
 			// 
-			this->Calc_length_of_belt->Location = System::Drawing::Point(48, 300);
+			this->Calc_length_of_belt->Location = System::Drawing::Point(66, 399);
 			this->Calc_length_of_belt->Name = L"Calc_length_of_belt";
 			this->Calc_length_of_belt->Size = System::Drawing::Size(92, 23);
 			this->Calc_length_of_belt->TabIndex = 24;
@@ -1164,7 +1179,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(6, 253);
+			this->label18->Location = System::Drawing::Point(6, 352);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(72, 16);
 			this->label18->TabIndex = 30;
@@ -1172,7 +1187,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// 
 			// Length_LTI
 			// 
-			this->Length_LTI->Location = System::Drawing::Point(74, 272);
+			this->Length_LTI->Location = System::Drawing::Point(74, 371);
 			this->Length_LTI->Name = L"Length_LTI";
 			this->Length_LTI->Size = System::Drawing::Size(100, 22);
 			this->Length_LTI->TabIndex = 29;
@@ -1180,7 +1195,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// Min_Length_2
 			// 
 			this->Min_Length_2->AutoSize = true;
-			this->Min_Length_2->Location = System::Drawing::Point(6, 204);
+			this->Min_Length_2->Location = System::Drawing::Point(6, 303);
 			this->Min_Length_2->Name = L"Min_Length_2";
 			this->Min_Length_2->Size = System::Drawing::Size(146, 16);
 			this->Min_Length_2->TabIndex = 28;
@@ -1189,7 +1204,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// I_Inhibitor_2
 			// 
 			this->I_Inhibitor_2->AutoSize = true;
-			this->I_Inhibitor_2->Location = System::Drawing::Point(6, 177);
+			this->I_Inhibitor_2->Location = System::Drawing::Point(6, 276);
 			this->I_Inhibitor_2->Name = L"I_Inhibitor_2";
 			this->I_Inhibitor_2->Size = System::Drawing::Size(74, 16);
 			this->I_Inhibitor_2->TabIndex = 27;
@@ -1198,7 +1213,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(6, 111);
+			this->label21->Location = System::Drawing::Point(6, 210);
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(121, 32);
 			this->label21->TabIndex = 26;
@@ -1206,7 +1221,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// 
 			// i_freq_LTI
 			// 
-			this->i_freq_LTI->Location = System::Drawing::Point(74, 146);
+			this->i_freq_LTI->Location = System::Drawing::Point(74, 245);
 			this->i_freq_LTI->Name = L"i_freq_LTI";
 			this->i_freq_LTI->Size = System::Drawing::Size(100, 22);
 			this->i_freq_LTI->TabIndex = 25;
@@ -1292,7 +1307,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			// 
 			// Last_interaxis_group
 			// 
-			this->Last_interaxis_group->Controls->Add(this->richTextBox1);
+			this->Last_interaxis_group->Controls->Add(this->Last_interaxis_result);
 			this->Last_interaxis_group->Enabled = false;
 			this->Last_interaxis_group->Location = System::Drawing::Point(649, 417);
 			this->Last_interaxis_group->Name = L"Last_interaxis_group";
@@ -1301,24 +1316,79 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			this->Last_interaxis_group->TabStop = false;
 			this->Last_interaxis_group->Text = L"Окончательное межосевое расстояние";
 			// 
-			// richTextBox1
+			// Last_interaxis_result
 			// 
-			this->richTextBox1->Enabled = false;
-			this->richTextBox1->Location = System::Drawing::Point(9, 21);
-			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(401, 72);
-			this->richTextBox1->TabIndex = 19;
-			this->richTextBox1->Text = L"";
+			this->Last_interaxis_result->Enabled = false;
+			this->Last_interaxis_result->Location = System::Drawing::Point(9, 21);
+			this->Last_interaxis_result->Name = L"Last_interaxis_result";
+			this->Last_interaxis_result->Size = System::Drawing::Size(401, 72);
+			this->Last_interaxis_result->TabIndex = 19;
+			this->Last_interaxis_result->Text = L"";
 			// 
 			// Final_angle
 			// 
+			this->Final_angle->Controls->Add(this->Final_angle_results);
+			this->Final_angle->Controls->Add(this->Calculate_final_angle);
+			this->Final_angle->Controls->Add(this->label24);
+			this->Final_angle->Controls->Add(this->Angle_B_Synthetic);
+			this->Final_angle->Controls->Add(this->Angle_B_Rubber);
 			this->Final_angle->Enabled = false;
 			this->Final_angle->Location = System::Drawing::Point(1295, 307);
 			this->Final_angle->Name = L"Final_angle";
-			this->Final_angle->Size = System::Drawing::Size(200, 214);
+			this->Final_angle->Size = System::Drawing::Size(200, 367);
 			this->Final_angle->TabIndex = 20;
 			this->Final_angle->TabStop = false;
 			this->Final_angle->Text = L"Угол обхвата на меньшем шкиве";
+			// 
+			// Final_angle_results
+			// 
+			this->Final_angle_results->Enabled = false;
+			this->Final_angle_results->Location = System::Drawing::Point(6, 160);
+			this->Final_angle_results->Name = L"Final_angle_results";
+			this->Final_angle_results->Size = System::Drawing::Size(185, 202);
+			this->Final_angle_results->TabIndex = 31;
+			this->Final_angle_results->Text = L"";
+			// 
+			// Calculate_final_angle
+			// 
+			this->Calculate_final_angle->Location = System::Drawing::Point(48, 122);
+			this->Calculate_final_angle->Name = L"Calculate_final_angle";
+			this->Calculate_final_angle->Size = System::Drawing::Size(92, 23);
+			this->Calculate_final_angle->TabIndex = 32;
+			this->Calculate_final_angle->Text = L"Расчитать";
+			this->Calculate_final_angle->UseVisualStyleBackColor = true;
+			this->Calculate_final_angle->Click += gcnew System::EventHandler(this, &MyForm::Calculate_final_angle_Click);
+			// 
+			// label24
+			// 
+			this->label24->AutoSize = true;
+			this->label24->Location = System::Drawing::Point(6, 37);
+			this->label24->Name = L"label24";
+			this->label24->Size = System::Drawing::Size(81, 16);
+			this->label24->TabIndex = 31;
+			this->label24->Text = L"Тип ремня: ";
+			// 
+			// Angle_B_Synthetic
+			// 
+			this->Angle_B_Synthetic->AutoSize = true;
+			this->Angle_B_Synthetic->Location = System::Drawing::Point(23, 88);
+			this->Angle_B_Synthetic->Name = L"Angle_B_Synthetic";
+			this->Angle_B_Synthetic->Size = System::Drawing::Size(129, 20);
+			this->Angle_B_Synthetic->TabIndex = 1;
+			this->Angle_B_Synthetic->TabStop = true;
+			this->Angle_B_Synthetic->Text = L"Синтетический";
+			this->Angle_B_Synthetic->UseVisualStyleBackColor = true;
+			// 
+			// Angle_B_Rubber
+			// 
+			this->Angle_B_Rubber->AutoSize = true;
+			this->Angle_B_Rubber->Location = System::Drawing::Point(24, 61);
+			this->Angle_B_Rubber->Name = L"Angle_B_Rubber";
+			this->Angle_B_Rubber->Size = System::Drawing::Size(102, 20);
+			this->Angle_B_Rubber->TabIndex = 0;
+			this->Angle_B_Rubber->TabStop = true;
+			this->Angle_B_Rubber->Text = L"Резиновый";
+			this->Angle_B_Rubber->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
@@ -1370,12 +1440,15 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			this->Lifetime_group->ResumeLayout(false);
 			this->Lifetime_group->PerformLayout();
 			this->Last_interaxis_group->ResumeLayout(false);
+			this->Final_angle->ResumeLayout(false);
+			this->Final_angle->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	public: int i_gear;
+	public: 
+		  //int i_gear;
 		  double alpha_1;//Угол на меньшем шкиве
 		  double u;//Передаточное число
 		  double D1;//Диаметр меньшего шкива
@@ -1384,7 +1457,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 		  double D2_main;//Диаметр большего шкива
 		  double a; //Межосевое расстояние
 		  double L; //Длина
-		  int Belt_type; //0 - резиновый 1 - синтетический
+		  int Belt_type=NULL; //1 - резиновый 2 - синтетический
 
 
 
@@ -1440,11 +1513,21 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 		}
 
 		double Calculate_alpha() {
-			return 180 - (D2_main * D1 / a) * 57;
+			return 180 - (((D2_main - D1) / a) * 57);
 		}
 #pragma endregion
 
 #pragma region Interface
+	private: System::Void Synthetic_depth_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		}
+	private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e) {
+	srand(time(NULL));
+	int random = rand() % 100;
+	if (random >= 40 && random <= 50) {
+		System::Diagnostics::Process::Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+	}
+	else {}
+}//Easter egg
 	private: System::Void Rubber_belt_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (Rubber_belt->Checked) {
 		Prokladki->Enabled = true;
@@ -1473,9 +1556,16 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 	else {
 		if ((I_Inhibitor_2->Text->Contains("5") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 5 ) || (I_Inhibitor_2->Text->Contains("50") && (Convert::ToDouble(this->i_freq_LTI->Text)) <= 50)) {
 			Min_Length_2->Text = "Минимальная длина:\n" + Length_check(Convert::ToDouble(this->i_freq_LTI->Text)) + " мм";
+			if (L>= Length_check(Convert::ToDouble(this->i_freq_LTI->Text))) {
+				Length_LTI->Enabled = false;
+			}
+			else {
+				Length_LTI->Enabled = true;
+			}
 		}
 		else {
 			Min_Length_2->Text = "Минимальная длина:\n" + "??? мм";
+			Length_LTI->Enabled = false;
 		}
 	}
 }
@@ -1597,10 +1687,12 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 		else {
 			n1_shkiv = Convert::ToDouble(this->BS_n1->Text);
 			if (this->Type_1->Checked == true) {
+				Belt_type = 1;
 				v_belt = Get_speed(1);
 				D1 = Calculate_Diametr(1, n1_shkiv);
 			}
 			else {
+				Belt_type = 2;
 				if (this->Type_2->Checked == true) {
 					v_belt = Get_speed(2);
 					D1 = Calculate_Diametr(2, n1_shkiv);
@@ -1655,18 +1747,74 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 	}
 }
 	
-	private: System::Void Select_length_Click(System::Object^ sender, System::EventArgs^ e) {//Длина ремня WIP
+	private: System::Void Select_length_Click(System::Object^ sender, System::EventArgs^ e) {
 	if(!TB_check(this->Length_in_gr->Text) || !TB_check(this->I_freq->Text))MessageBox::Show("Какую длину ремня вы хотите выбрать?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 	else {
 		if (Convert::ToDouble(this->Length_in_gr->Text)< Length_check(Convert::ToDouble(this->I_freq->Text))) {
 			MessageBox::Show("Слишком маленькая длина ремня!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		}
+		else {
+			L = Convert::ToDouble(this->Length_in_gr->Text);
+			a = Calculate_final_interaxis();
+			Last_interaxis_group->Enabled = true;
+			Last_interaxis_result->Text = "Межосевое расстояние: " + a + " мм";
+			Lifetime_group->Enabled = false;
+			Final_angle->Enabled = true;
+			if (Belt_type == NULL) {
+				Angle_B_Rubber->Enabled = true;
+				Angle_B_Synthetic->Enabled = true;
+			}
+			else {
+				Angle_B_Rubber->Enabled = false;
+				Angle_B_Synthetic->Enabled = false;
+			}
+		}
 	}
 
 }
 	private: System::Void Calc_length_of_belt_Click(System::Object^ sender, System::EventArgs^ e) {//Длина ремня WIP
-	
-
+		if(!TB_check(i_freq_LTI->Text))MessageBox::Show("Какая частота пробега в секунду?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		else {
+			if (L >= Length_check(Convert::ToDouble(this->i_freq_LTI->Text))) {
+				a=Calculate_final_interaxis();
+				Last_interaxis_group->Enabled = true;
+				Last_interaxis_result->Text = "Межосевое расстояние: " + a + " мм";
+				Length_througth_interaxis->Enabled = false;
+				Final_angle->Enabled = true;
+				if (Belt_type == NULL) {
+					Angle_B_Rubber->Enabled = true;
+					Angle_B_Synthetic->Enabled = true;
+				}
+				else {
+					Angle_B_Rubber->Enabled = false;
+					Angle_B_Synthetic->Enabled = false;
+				}
+			}
+			else {
+				if(!TB_check(Length_LTI->Text))MessageBox::Show("Некорректное значение длины!", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+				else {
+					L = Convert::ToDouble(Length_LTI->Text);
+					
+					if (High_speed_low_drag->Checked) {
+						L = Round_Length(L);
+					}
+					LTI_Results->Text = "Длина ремня: " + L + " мм";
+					a = Calculate_final_interaxis();
+					Last_interaxis_group->Enabled = true;
+					Last_interaxis_result->Text = "Межосевое расстояние: " + a + " мм";
+					Length_througth_interaxis->Enabled = false;
+					Final_angle->Enabled = true;
+					if (Belt_type == NULL) {
+						Angle_B_Rubber->Enabled = true;
+						Angle_B_Synthetic->Enabled = true;
+					}
+					else {
+						Angle_B_Rubber->Enabled = false;
+						Angle_B_Synthetic->Enabled = false;
+					}
+				}
+			}
+		}
 	}
 	private: System::Void Calculate_D1_TD_Click(System::Object^ sender, System::EventArgs^ e) {
 		if(Rubber_belt->Checked==false && Syntetic_belt->Checked==false)MessageBox::Show("Какой ремень?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
@@ -1674,6 +1822,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 			if (Syntetic_belt->Checked) {
 				if (!Synthetic_depth->SelectedItem) { MessageBox::Show("Какая толщина ремня?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning); }
 				else {
+					Belt_type = 2;
 					D1 = D1_synthetic(Convert::ToDouble(Synthetic_depth->SelectedItem->ToString()));
 					Depth_results->Text += "Минимальный диаметр меньшего шкива: " + D1 + " мм";
 				}
@@ -1693,6 +1842,7 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 							D1 = D1_rubber(2, Convert::ToInt64(Prokladki->SelectedItem->ToString()), Interlay);
 							Depth_results->Text += "Допустимый минимальный диаметр меньшего шкива: " + D1 + " мм\n Рекомендуемый минимальный диаметр меньшего шкива: " + D1_rubber_R(2, Convert::ToInt64(Prokladki->SelectedItem->ToString()), Interlay); +" мм";
 						}
+						Belt_type = 1;
 					}
 				}
 			}
@@ -1725,9 +1875,34 @@ private: System::Windows::Forms::RadioButton^ B800_B820;
 
 	
 
-private: System::Void Synthetic_depth_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void Calculate_final_angle_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (Belt_type == NULL) {
+		if(!Angle_B_Rubber->Checked && !Angle_B_Synthetic->Checked) MessageBox::Show("Какой ремень? Синтетический или резиновый?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		else {
+			if (Angle_B_Rubber->Checked) Belt_type = 1;
+			else Belt_type = 2;
+		}
+	}
+	if (Belt_type != NULL) {
+		alpha_1 = Calculate_alpha();
+		Final_angle_results->Text = "Угол обхвата на меньшем шкиве: " + alpha_1+" \nТип ремня: ";
+		switch (Belt_type)
+		{
+		case 1:
+			Final_angle_results->Text += " Прорезиненный\n";
+			if(alpha_1>=150) Final_angle_results->Text += " Угол соответствует стандарту для прорезиненных ремней.\n";
+			else Final_angle_results->Text += " Угол не соответствует стандарту для прорезиненных ремней.\n ";
+			break;
+		case 2:
+			Final_angle_results->Text += " Синтетический\n";
+			if (alpha_1 >= 150) Final_angle_results->Text += " Угол соответствует стандарту для синтетических ремней.\n";
+			else Final_angle_results->Text += " Угол не соответствует стандарту для синтетических ремней.\n ";
+			break;
+		default:
+			break;
+		}
+	}
 }
 };
   
