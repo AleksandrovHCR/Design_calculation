@@ -176,6 +176,10 @@ private: System::Windows::Forms::RadioButton^ Angle_B_Synthetic;
 private: System::Windows::Forms::RadioButton^ Angle_B_Rubber;
 private: System::Windows::Forms::Button^ Calculate_final_angle;
 private: System::Windows::Forms::RichTextBox^ Final_angle_results;
+private: System::Windows::Forms::GroupBox^ Save_final;
+private: System::Windows::Forms::RichTextBox^ Last_results;
+private: System::Windows::Forms::ToolStripMenuItem^ сохранитьToolStripMenuItem;
+
 
 
 
@@ -305,6 +309,9 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			this->label24 = (gcnew System::Windows::Forms::Label());
 			this->Angle_B_Synthetic = (gcnew System::Windows::Forms::RadioButton());
 			this->Angle_B_Rubber = (gcnew System::Windows::Forms::RadioButton());
+			this->Save_final = (gcnew System::Windows::Forms::GroupBox());
+			this->Last_results = (gcnew System::Windows::Forms::RichTextBox());
+			this->сохранитьToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->D1_Group->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->Sav_group->SuspendLayout();
@@ -320,6 +327,7 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			this->Lifetime_group->SuspendLayout();
 			this->Last_interaxis_group->SuspendLayout();
 			this->Final_angle->SuspendLayout();
+			this->Save_final->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -405,7 +413,10 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			// 
 			// расчётыToolStripMenuItem
 			// 
-			this->расчётыToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->сброситьToolStripMenuItem });
+			this->расчётыToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->сброситьToolStripMenuItem,
+					this->сохранитьToolStripMenuItem
+			});
 			this->расчётыToolStripMenuItem->Name = L"расчётыToolStripMenuItem";
 			this->расчётыToolStripMenuItem->Size = System::Drawing::Size(79, 24);
 			this->расчётыToolStripMenuItem->Text = L"Расчёты";
@@ -413,7 +424,7 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			// сброситьToolStripMenuItem
 			// 
 			this->сброситьToolStripMenuItem->Name = L"сброситьToolStripMenuItem";
-			this->сброситьToolStripMenuItem->Size = System::Drawing::Size(158, 26);
+			this->сброситьToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->сброситьToolStripMenuItem->Text = L"Сбросить";
 			this->сброситьToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::сброситьToolStripMenuItem_Click);
 			// 
@@ -1309,9 +1320,9 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			// 
 			this->Last_interaxis_group->Controls->Add(this->Last_interaxis_result);
 			this->Last_interaxis_group->Enabled = false;
-			this->Last_interaxis_group->Location = System::Drawing::Point(649, 417);
+			this->Last_interaxis_group->Location = System::Drawing::Point(649, 412);
 			this->Last_interaxis_group->Name = L"Last_interaxis_group";
-			this->Last_interaxis_group->Size = System::Drawing::Size(419, 104);
+			this->Last_interaxis_group->Size = System::Drawing::Size(425, 109);
 			this->Last_interaxis_group->TabIndex = 19;
 			this->Last_interaxis_group->TabStop = false;
 			this->Last_interaxis_group->Text = L"Окончательное межосевое расстояние";
@@ -1319,9 +1330,9 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			// Last_interaxis_result
 			// 
 			this->Last_interaxis_result->Enabled = false;
-			this->Last_interaxis_result->Location = System::Drawing::Point(9, 21);
+			this->Last_interaxis_result->Location = System::Drawing::Point(6, 21);
 			this->Last_interaxis_result->Name = L"Last_interaxis_result";
-			this->Last_interaxis_result->Size = System::Drawing::Size(401, 72);
+			this->Last_interaxis_result->Size = System::Drawing::Size(413, 82);
 			this->Last_interaxis_result->TabIndex = 19;
 			this->Last_interaxis_result->Text = L"";
 			// 
@@ -1390,11 +1401,39 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			this->Angle_B_Rubber->Text = L"Резиновый";
 			this->Angle_B_Rubber->UseVisualStyleBackColor = true;
 			// 
+			// Save_final
+			// 
+			this->Save_final->Controls->Add(this->Last_results);
+			this->Save_final->Enabled = false;
+			this->Save_final->Location = System::Drawing::Point(418, 524);
+			this->Save_final->Name = L"Save_final";
+			this->Save_final->Size = System::Drawing::Size(650, 150);
+			this->Save_final->TabIndex = 21;
+			this->Save_final->TabStop = false;
+			this->Save_final->Text = L"Конечные данные";
+			// 
+			// Last_results
+			// 
+			this->Last_results->Enabled = false;
+			this->Last_results->Location = System::Drawing::Point(6, 18);
+			this->Last_results->Name = L"Last_results";
+			this->Last_results->Size = System::Drawing::Size(638, 126);
+			this->Last_results->TabIndex = 20;
+			this->Last_results->Text = L"";
+			// 
+			// сохранитьToolStripMenuItem
+			// 
+			this->сохранитьToolStripMenuItem->Enabled = false;
+			this->сохранитьToolStripMenuItem->Name = L"сохранитьToolStripMenuItem";
+			this->сохранитьToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->сохранитьToolStripMenuItem->Text = L"Сохранить";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1501, 686);
+			this->Controls->Add(this->Save_final);
 			this->Controls->Add(this->Final_angle);
 			this->Controls->Add(this->Last_interaxis_group);
 			this->Controls->Add(this->Lifetime_group);
@@ -1442,6 +1481,7 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			this->Last_interaxis_group->ResumeLayout(false);
 			this->Final_angle->ResumeLayout(false);
 			this->Final_angle->PerformLayout();
+			this->Save_final->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1637,7 +1677,6 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 
 		}
 	}
-	
 	private: System::Void Calc_D2_Click(System::Object^ sender, System::EventArgs^ e) {
 	if(!this->epsilon_002->Checked && !this->epsilon_003->Checked)MessageBox::Show("Выберите значение коэффициента скольжения ремня 0.02 или 0.03!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 	else {
@@ -1678,7 +1717,6 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			this->Size_group->Enabled = false;
 		}
 	}
-	
 	private: System::Void Calculate_D1_speed_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (this->Type_1->Checked == false && this->Type_2->Checked == false && this->Type_3->Checked == false) { MessageBox::Show("Выберите тип ремня!", "Ошибка!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk); }
@@ -1746,7 +1784,6 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 
 	}
 }
-	
 	private: System::Void Select_length_Click(System::Object^ sender, System::EventArgs^ e) {
 	if(!TB_check(this->Length_in_gr->Text) || !TB_check(this->I_freq->Text))MessageBox::Show("Какую длину ремня вы хотите выбрать?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 	else {
@@ -1870,13 +1907,7 @@ private: System::Windows::Forms::RichTextBox^ Final_angle_results;
 			}
 		}
 	}
-#pragma endregion
-
-
-	
-
-
-private: System::Void Calculate_final_angle_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void Calculate_final_angle_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (Belt_type == NULL) {
 		if(!Angle_B_Rubber->Checked && !Angle_B_Synthetic->Checked) MessageBox::Show("Какой ремень? Синтетический или резиновый?", "Вопрос", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 		else {
@@ -1902,8 +1933,21 @@ private: System::Void Calculate_final_angle_Click(System::Object^ sender, System
 		default:
 			break;
 		}
+		Save_final->Enabled = true;
+		сохранитьToolStripMenuItem->Enabled = true;
+		Last_results->Enabled = true;
+		Last_results->Text = "Угол на меньшем шкиве: "+alpha_1+"\nПередаточное число: "+u+"\nДиаметр меньшего шкива: "+D1+" мм\nДиаметр большего шкива: "+D2_main+" мм"+
+			"\nСкорость ремня: "+v_belt+" м/с\nДлина ремня: "+L+" мм\nМежосевое расстояние: "+a+" мм\nТип ремня: ";
+		Last_results->Text += (Belt_type == 1) ? "Прорезиненный" : "Синтетический";
 	}
 }
+#pragma endregion
+
+
+	
+
+
+	
 };
   
 	
