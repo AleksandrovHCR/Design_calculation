@@ -1,7 +1,7 @@
 #include "Main.h"
 #include <Windows.h>
 #include <process.h>
-
+#include <string.h>
 
 using namespace  урсова€работа;
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
